@@ -422,27 +422,27 @@ export const blogPosts = [
 export const socialLinks = [
   {
     name: "Facebook",
-    url: "https://www.facebook.com/share/17paLZEess/",
+    url: "https://www.facebook.com",
     icon: FaFacebook,
   },
   {
     name: "Instagram",
-    url: "https://www.instagram.com/zentrodigital.agency",
+    url: "https://www.instagram.com",
     icon: FaInstagram,
   },
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/company/divineesoft-digital-technology/",
+    url: "https://www.linkedin.com/in/md-zeeshan-aslam-0749a7252",
     icon: FaLinkedin,
   },
   {
     name: "X",
-    url: "https://x.com/Zentro_Digital",
+    url: "https://x.com",
     icon: FaXTwitter,
   },
   {
     name: "Pinterest",
-    url: "https://www.pinterest.com/zentrodigitaltechnology",
+    url: "https://www.pinterest.com",
     icon: FaPinterest,
   },
 ];
