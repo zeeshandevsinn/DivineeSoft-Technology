@@ -60,7 +60,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl text-slate-200 mb-12 max-w-2xl leading-relaxed"
           >
-            We are Zentro Digital. A full-service agency delivering smart, creative, and result-driven solutions to help your business grow online.
+            We are Divinee Soft Technology. A full-service agency delivering smart, creative, and result-driven solutions to help your business grow online.
           </motion.p>
 
           <motion.div
@@ -74,7 +74,7 @@ export default function Hero() {
               className="bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full px-8 h-14 text-lg shadow-lg shadow-secondary/20"
               onClick={async () => {
                 const cal = await getCalApi({});
-                cal("modal", { calLink: process.env.NEXT_PUBLIC_CAL_LINK || "zentro-digital/30min" });
+                cal("modal", { calLink: process.env.NEXT_PUBLIC_CAL_LINK || "zeeshan-malik-x0xcrz/30min" });
               }}
             >
               Book Meeting <Calendar className="ml-2 w-5 h-5" />
