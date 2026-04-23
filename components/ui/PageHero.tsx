@@ -48,7 +48,7 @@ export default function PageHero({
     <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-background/75 z-10" />
+        <div className="absolute inset-0 bg-slate-900/70 z-10" />
         <img
           src={bgImage}
           alt="Background"

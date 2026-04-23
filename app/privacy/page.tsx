@@ -64,7 +64,7 @@ const privacyPolicyData: PrivacySection[] = [
     content: (
       <>
         <p>
-          If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:admin@zentrodigital.agency" className="text-primary hover:text-blue-800">admin@zentrodigital.agency</a>.
+          If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:admin@divineesoft.com" className="text-primary hover:text-blue-800">admin@divineesoft.com</a>.
         </p>
       </>
     ),

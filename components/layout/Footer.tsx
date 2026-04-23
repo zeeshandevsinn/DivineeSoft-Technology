@@ -116,7 +116,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <span className="block text-white font-medium mb-1">Email Us</span>
-                  <a href="mailto:admin@zentrodigital.agency" className="text-sm hover:text-white transition-colors">admin@zentrodigital.agency</a>
+                  <a href="mailto:admin@divineesoft.com" className="text-sm hover:text-white transition-colors">admin@divineesoft.com</a>
                 </div>
               </li>
             </ul>

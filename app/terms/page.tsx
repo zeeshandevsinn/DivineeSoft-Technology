@@ -45,7 +45,7 @@ export default function TermsPage() {
 
             <h3>7. Contact Us</h3>
             <p>
-              If you have any questions about these Terms, please contact us at: <a href="mailto:admin@zentrodigital.agency" className="text-primary hover:text-blue-800">admin@zentrodigital.agency</a>.
+              If you have any questions about these Terms, please contact us at: <a href="mailto:admin@divineesoft.com" className="text-primary hover:text-blue-800">admin@divineesoft.com</a>.
             </p>
           </div>
         </section>

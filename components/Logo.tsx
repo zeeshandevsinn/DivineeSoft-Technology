@@ -49,7 +49,7 @@ export default function Logo({
         <div className={cn("flex flex-col justify-center", isFooter ? "hidden lg:flex" : "")}>
           <h1
             className={cn(
-              "text-lg font-bold leading-none tracking-[3px] logoText transition-colors",
+              "text-sm md:text-base lg:text-lg font-bold leading-none md:tracking-[3px] sm:tracking-[1px] logoText transition-colors",
               shouldUseWhite ? "text-white" : "text-foreground",
               textClassName
             )}
