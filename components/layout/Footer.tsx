@@ -91,7 +91,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <span className="block text-white font-medium mb-1">France</span>
-                  <span className="text-sm">31 Rue Didot, Paris 75014</span>
+                  <span className="text-sm">House 4/5, Street 62 , near Sharief Park Multan Road Lahore</span>
                 </div>
               </li>
               <li className="flex items-start gap-4">

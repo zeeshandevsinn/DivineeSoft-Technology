@@ -164,8 +164,8 @@ export default function ContactClient() {
                     <InfoItem
                       icon={<Phone />}
                       title="Phone"
-                      value="+33 7 46 40 27 46"
-                      link="tel:+33746402746"
+                      value="+92 309 7325208"
+                      link="tel:+923097325208"
                     />
                     <InfoItem
                       icon={<Mail />}
@@ -176,7 +176,7 @@ export default function ContactClient() {
                     <InfoItem
                       icon={<MapPin />}
                       title="Address"
-                      value="31 Rue Didot, Paris 75014, France"
+                      value="House 4/5, Street 62 , near Sharief Park Multan Road Lahore"
                     />
                     <InfoItem
                       icon={<Clock />}
@@ -334,7 +334,7 @@ export default function ContactClient() {
             scrolling="no"
             marginHeight={0}
             marginWidth={0}
-            src="https://maps.google.com/maps?q=31%20Rue%20Didot%2C%20Paris%2C%20France&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d431.29659378466147!2d74.28840968516866!3d31.52875636740413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sLahore%2C%20Pakistan!5e0!3m2!1sen!2sit!4v1777090336459!5m2!1sen!2sit"
             className="filter grayscale hover:grayscale-0 transition-all duration-300"
           ></iframe>
         </section>
