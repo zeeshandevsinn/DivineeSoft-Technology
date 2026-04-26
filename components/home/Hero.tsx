@@ -39,14 +39,14 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            #1 Digital Agency in France & Pakistan
+            #1 Digital Agency in Pakistan
           </motion.div> */}
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-8 tracking-tight leading-tight"
+            className="text-[clamp(2rem,6vw,5.2rem)] font-bold text-white mb-8 sm:tracking-tight  sm:leading-tight md:pt-0 pt-6"
           >
             Transforming Ideas into <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
@@ -58,7 +58,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl text-slate-200 mb-12 max-w-2xl leading-relaxed"
+            className="text-lg md:text-xl text-slate-200 mb-12 max-w-2xl leading-relaxed"
           >
             We are Divinee Soft Technology. A full-service agency delivering smart, creative, and result-driven solutions to help your business grow online.
           </motion.p>
@@ -88,12 +88,19 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-16 flex flex-wrap justify-center gap-8 text-sm font-medium text-muted-foreground"
+            className="mt-14 flex flex-col sm:flex-row sm:flex-wrap justify-center lg:justify-start sm:items-center lg:items-start gap-4 sm:gap-6 text-sm font-medium text-muted-foreground"
           >
-            {["Verified Expert Team", "100% Client Satisfaction", "Award Winning Agency"].map((item, i) => (
-              <div key={i} className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-primary" />
-                {item}
+            {[
+              "Production-ready AI & SaaS systems",
+              "Client-focused delivery",
+              "Modern full-stack architecture"
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-2 text-center sm:text-left"
+              >
+                <CheckCircle2 className="w-5 h-5 text-secondary shrink-0" />
+                <span className="leading-snug">{item}</span>
               </div>
             ))}
           </motion.div>
