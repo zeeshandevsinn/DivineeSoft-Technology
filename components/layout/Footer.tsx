@@ -90,7 +90,7 @@ export default function Footer() {
                   <MapPin size={18} />
                 </div>
                 <div>
-                  <span className="block text-white font-medium mb-1">France</span>
+                  <span className="block text-white font-medium mb-1">Pakistan</span>
                   <span className="text-sm">House 4/5, Street 62 , near Sharief Park Multan Road Lahore</span>
                 </div>
               </li>

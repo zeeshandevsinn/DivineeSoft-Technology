@@ -40,7 +40,7 @@ export default function TermsPage() {
 
             <h3>6. Governing Law</h3>
             <p>
-              These Terms shall be governed and construed in accordance with the laws of France, without regard to its conflict of law provisions.
+              These Terms shall be governed and construed in accordance with the laws of Pakistan, without regard to its conflict of law provisions.
             </p>
 
             <h3>7. Contact Us</h3>

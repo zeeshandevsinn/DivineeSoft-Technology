@@ -72,7 +72,7 @@ export default function PageHero({
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              #1 Digital Agency in France & Pakistan
+              #1 Digital Agency in Pakistan
             </motion.div>
           )}
 
@@ -80,7 +80,7 @@ export default function PageHero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-tight leading-tight"
+            className="text-[clamp(2rem,6vw,5.2rem)] font-bold text-white mb-8 tracking-tight leading-tight"
           >
             {title}
           </motion.h1>
