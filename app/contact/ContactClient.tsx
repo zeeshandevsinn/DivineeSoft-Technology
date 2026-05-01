@@ -170,8 +170,8 @@ export default function ContactClient() {
                     <InfoItem
                       icon={<Mail />}
                       title="Email"
-                      value="admin@divineesoft.com"
-                      link="mailto:admin@divineesoft.com"
+                      value="zeemalik0110@gmail.com"
+                      link="mailto:zeemalik0110@gmail.com"
                     />
                     <InfoItem
                       icon={<MapPin />}
