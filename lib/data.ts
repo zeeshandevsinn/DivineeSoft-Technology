@@ -15,7 +15,7 @@ import {
   Globe,
   Cpu
 } from 'lucide-react';
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaPinterest } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin, FaPinterest } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 // Using the default placeholder image downloaded to public/placeholder.jpg
