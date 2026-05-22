@@ -72,6 +72,10 @@ export default function Header() {
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Case Studies", href: "/case-studies" },
+    {
+      name: "Blogs",
+      href: "https://darkgreen-mule-747600.hostingersite.com/blog/",
+    },
   ];
 
   return (
@@ -88,7 +92,7 @@ export default function Header() {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-screen",
           scrolled
             ? "bg-background/80 backdrop-blur-md shadow-sm border-b border-border"
-            : "bg-transparent"
+            : "bg-transparent",
         )}
       >
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
@@ -105,7 +109,7 @@ export default function Header() {
                       href={link.href}
                       className={cn(
                         "text-sm font-medium flex items-center gap-1 py-4 relative",
-                        navTextClass
+                        navTextClass,
                       )}
                     >
                       Services
@@ -145,7 +149,7 @@ export default function Header() {
                   href={link.href}
                   className={cn(
                     "text-sm font-medium py-2 relative group",
-                    navTextClass
+                    navTextClass,
                   )}
                 >
                   {link.name}
@@ -159,10 +163,7 @@ export default function Header() {
           <div className="flex items-center gap-4">
             <ThemeToggle />
 
-            <Button
-              asChild
-              className="hidden md:inline-flex rounded-full px-6"
-            >
+            <Button asChild className="hidden md:inline-flex rounded-full px-6">
               <Link href="/contact">Get a Quote</Link>
             </Button>
 
@@ -211,7 +212,7 @@ export default function Header() {
                         <ChevronDown
                           className={cn(
                             "transition-transform",
-                            mobileServicesOpen && "rotate-180"
+                            mobileServicesOpen && "rotate-180",
                           )}
                         />
                       </button>
