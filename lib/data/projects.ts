@@ -1,4 +1,68 @@
 export const projects = [
+  {
+    id: "barberz-link",
+    categories: ["App Development"],
+    type: "case-study",
+    status: "completed",
+    meta: {
+      title: "Barberz Link",
+      slug: "barberz-link",
+      date: "2024-06-10",
+    },
+    seo: {
+      title: "Barberz Link Case Study | DivineeSoft Technology Mobile App Solutions",
+      description: "Discover how DivineeSoft Technology developed the Barberz Link app—a nationwide professional platform exclusively for the barber industry, connecting shops, barbers, schools, and events.",
+      keywords: "Barberz Link, mobile app development, Flutter app, MVVM architecture, Stripe integration, scheduling app, barber job board, licensing directory"
+    },
+    client: {
+      name: "Barberz Link LLC",
+    },
+    overview: {
+      summary: "A nationwide professional platform built specifically for the barber industry, connecting licensed barbers, barbershop owners, schools, and event organizers across all 50 states.",
+      problem: "The barbering industry lacked a unified digital home. Shop owners struggled to find licensed barbers, job seekers had no industry-exclusive job boards, and licensing information across all 50 states was scattered and difficult to track.",
+      solution: "We built a cross-platform mobile application using Flutter and MVVM architecture. The platform features an interactive job board, trade show and event coordinator hub, state licensing reciprocity tracking, and secure direct messaging with integrated SMS consent alerts. Stripe integration was implemented to manage premium subscription plans for enhanced listings and shop promotion.",
+      outcome: "Delivered a complete professional ecosystem that streamlines recruitment, event hosting, and career development, positioning Barberz Link as the premier nationwide platform for the barber industry.",
+    },
+    services: ["Mobile App Development", "Flutter", "MVVM Architecture", "Stripe Integration", "Job Board", "State Licensing Database", "Direct Messaging & SMS"],
+    value: "Created a unified digital ecosystem that connects barbershops, barbers, schools, and vendors nationwide.",
+    images: { thumbnail: "/projects/barberzlink.png", cover: "/projects/barberzlink.png", gallery: [] },
+    links: {
+      appStore: "https://apps.apple.com/us/app/barberz-link/id6759682571",
+      playStore: "http://play.google.com/store/apps/details?id=com.barberzlink.barberzlink"
+    }
+  },
+  {
+    id: "cosmo-link",
+    categories: ["App Development"],
+    type: "case-study",
+    status: "completed",
+    meta: {
+      title: "CosmoLink",
+      slug: "cosmo-link",
+      date: "2024-06-11",
+    },
+    seo: {
+      title: "CosmoLink Case Study | DivineeSoft Technology Mobile App Solutions",
+      description: "Explore how DivineeSoft Technology built CosmoLink, the all-in-one platform connecting cosmetologists, estheticians, nail technicians, and beauty professionals with salons and spas.",
+      keywords: "CosmoLink, mobile app development, Flutter app, MVVM, Stripe integration, beauty industry app, salon directory, cosmetology job board"
+    },
+    client: {
+      name: "CosmoLink LLC",
+    },
+    overview: {
+      summary: "An all-in-one platform connecting cosmetologists, estheticians, nail technicians, and beauty professionals with salons, spas, schools, and industry events nationwide.",
+      problem: "Cosmetologists, nail technicians, braiders, lash artists, and estheticians lacked a dedicated platform to showcase visual portfolios, track state-by-state continuing education, find booth rentals or spa/salon openings, and network.",
+      solution: "We developed a high-fidelity mobile app using Flutter and MVVM architecture. The solution features a portfolio organizer, booth rental and full-time job boards, a state licensing requirements directory, and direct messaging functionality. The monetization layer utilizes Stripe integration for premium plans and featured salon promotions.",
+      outcome: "Launched a premium professional hub that empowers beauty experts to connect, find booth rentals, manage bookings, and scale their beauty businesses across all 50 states.",
+    },
+    services: ["Mobile App Development", "Flutter", "MVVM Architecture", "Stripe Integration", "Portfolio Showcase", "Trade Show Directory", "SMS & Chat Integrations"],
+    value: "Empowered beauty and cosmetology professionals to scale their business, showcase their artistry, and network nationwide.",
+    images: { thumbnail: "/projects/cosmolink.png", cover: "/projects/cosmolink.png", gallery: [] },
+    links: {
+      appStore: "https://apps.apple.com/us/app/cosmolink-app/id6768809149",
+      playStore: "https://play.google.com/store/apps/details?id=com.cosmolink.app"
+    }
+  },
   /*
   {
     id: "salamly-app",
@@ -116,6 +180,68 @@ export const projects = [
     },
     links: {
       appStore: "https://apps.apple.com/pk/app/sariea/id6744682900"
+    }
+  },
+  {
+    id: "barberz-link-web",
+    categories: ["Web Development"],
+    type: "case-study",
+    status: "completed",
+    meta: {
+      title: "Barberz Link Web",
+      slug: "barberz-link-web",
+      date: "2024-06-12",
+    },
+    seo: {
+      title: "Barberz Link Web Case Study | DivineeSoft Technology Web Development",
+      description: "Discover how DivineeSoft Technology developed the Barberz Link Web platform—a responsive, high-performance website using React, Tailwind CSS, and Next.js.",
+      keywords: "Barberz Link Web, web development, React web, Next.js, Tailwind CSS, DivineeSoft Technology, responsive website, professional barber platform"
+    },
+    client: {
+      name: "Barberz Link LLC",
+    },
+    overview: {
+      summary: "A responsive, professional web platform designed exclusively for the barber industry to showcase products, manage resources, and promote app downloads.",
+      problem: "The client needed a high-performance web presence to market their mobile application, provide web-based onboarding tools, and establish a professional brand footprint.",
+      solution: "We designed and built a fast, SEO-optimized web application using React, Tailwind CSS, and Next.js. The website provides clean, modern marketing sections, business info details, state licensing data lookups, and direct links to the mobile application stores.",
+      outcome: "Launched a premium web experience that drives high conversion rates for app downloads and establishes a powerful online brand presence.",
+    },
+    services: ["Web Development", "React", "Next.js", "Tailwind CSS", "UI/UX Design", "SEO Optimization"],
+    value: "Established a professional online hub to drive app installs and brand engagement.",
+    images: { thumbnail: "/projects/barberzlink-web.png", cover: "/projects/barberzlink-web.png", gallery: [] },
+    links: {
+      website: "https://barberzlink.com/"
+    }
+  },
+  {
+    id: "cosmo-link-web",
+    categories: ["Web Development"],
+    type: "case-study",
+    status: "completed",
+    meta: {
+      title: "CosmoLink Web",
+      slug: "cosmo-link-web",
+      date: "2024-06-13",
+    },
+    seo: {
+      title: "CosmoLink Web Case Study | DivineeSoft Technology Web Development",
+      description: "Read how DivineeSoft Technology built the CosmoLink Web platform—a responsive, modern marketing and onboarding site using React, Tailwind CSS, and Next.js.",
+      keywords: "CosmoLink Web, web development, React web, Next.js, Tailwind CSS, DivineeSoft Technology, beauty industry web"
+    },
+    client: {
+      name: "CosmoLink LLC",
+    },
+    overview: {
+      summary: "A responsive marketing and resources website for the cosmetology and beauty industry, serving as the web gateway for the CosmoLink mobile app.",
+      problem: "CosmoLink needed a strong web presence to educate beauty professionals about their app, offer direct download links, and present state licensing rules in a searchable web layout.",
+      solution: "We developed a modern, sleek web platform using React, Tailwind CSS, and Next.js. The interface features responsive landing blocks, state licensing databases, detailed feature grids, and interactive app store promotions.",
+      outcome: "Successfully launched a premium website that drives user registration and establishes CosmoLink's digital brand authority.",
+    },
+    services: ["Web Development", "React", "Next.js", "Tailwind CSS", "UI/UX Design", "SEO Optimization"],
+    value: "Built a premium web presence that serves as a gateway to the CosmoLink professional community.",
+    images: { thumbnail: "/projects/cosmolink-web.png", cover: "/projects/cosmolink-web.png", gallery: [] },
+    links: {
+      website: "https://cosmolinkapp.com/"
     }
   },
   {

@@ -88,7 +88,18 @@ export default function CaseStudiesClient() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors text-sm font-medium"
                       >
-                        Get App <ExternalLink size={16} />
+                        {p.links.appStore.includes('play.google.com') ? 'Play Store' : p.links.playStore ? 'App Store' : 'Get App'} <ExternalLink size={16} />
+                      </Link>
+                    )}
+
+                    {p.links?.playStore && (
+                      <Link
+                        href={p.links.playStore}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors text-sm font-medium"
+                      >
+                        Play Store <ExternalLink size={16} />
                       </Link>
                     )}
                   </div>
