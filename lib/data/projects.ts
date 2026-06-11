@@ -193,6 +193,7 @@ export const projects = [
     value: "Restored and exceeded previous organic traffic baselines.",
     images: { thumbnail: "/projects/seo.jpg", cover: "/projects/seo.jpg", gallery: [] },
   },
+  /*
   {
     id: "alt-optimization",
     categories: ["Web Development", "AI Development and Services", "Search Engine Optimization"], // Multi-Category
@@ -232,7 +233,6 @@ export const projects = [
       website: "https://altext.co"
     }
   },
-  /*
   {
     id: "wird-book-mobile-app",
     categories: ["App Development"],
