@@ -1,4 +1,5 @@
 export const projects = [
+  /*
   {
     id: "salamly-app",
     categories: ["App Development"],
@@ -38,6 +39,7 @@ export const projects = [
       appStore: "https://play.google.com/store/apps/details?id=com.salamgram.salamgram&hl=en"
     }
   },
+  */
   {
     id: "ballerz-network",
     categories: ["App Development"],
@@ -230,6 +232,7 @@ export const projects = [
       website: "https://altext.co"
     }
   },
+  /*
   {
     id: "wird-book-mobile-app",
     categories: ["App Development"],
@@ -388,6 +391,7 @@ export const projects = [
       website: "https://drafidox.com/"
     }
   },
+  */
   {
     id: "fec-school-app",
     categories: ["App Development"],
