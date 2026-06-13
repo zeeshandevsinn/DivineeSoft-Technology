@@ -42,7 +42,7 @@ export default function Principles() {
               Principles That Drive Every Action
             </h2>
             <p className="text-muted-foreground leading-relaxed text-lg">
-              Our core values aren't just words on a page; they are the principles that anchor our decisions, shape our strategies, and define how we interact with our clients and each other.
+              Our core values aren&apos;t just words on a page; they are the principles that anchor our decisions, shape our strategies, and define how we interact with our clients and each other.
             </p>
           </div>
 
