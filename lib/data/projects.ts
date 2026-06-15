@@ -63,6 +63,58 @@ export const projects = [
       playStore: "https://play.google.com/store/apps/details?id=com.cosmolink.app"
     }
   },
+   {
+    id: "beauty-spot-app",
+    categories: ["App Development"],
+    type: "case-study",
+    status: "completed",
+    meta: {
+      title: "Beauty Spot App",
+      slug: "beauty-spot-app",
+      date: "2026-05-7",
+    },
+    client: {
+      name: "Beauty Spot",
+    },
+    overview: {
+      summary: "A modern beauty marketplace app connecting clients with beauty professionals across the UK.",
+      problem: "Clients faced difficulty finding trusted beauty service providers with transparent pricing, authentic reviews, and accessible portfolios in one platform, while beauty professionals lacked an efficient way to reach new customers.",
+      solution: "We designed and developed a scalable mobile app with a robust backend system that enables users to discover, compare, and book beauty professionals based on location, pricing, ratings, and service availability.",
+      outcome: "Delivered a seamless digital ecosystem that improved service discovery, increased bookings, and helped beauty professionals expand their client base",
+    },
+    services: ["App Development", "UI/UX Design"],
+    value: "Created a reliable beauty service marketplace with a smooth booking experience and strong backend infrastructure.",
+    images: { thumbnail: "/projects/beautyspot.png", cover: "/projects/beautyspot.png", gallery: [] },
+    links: {
+      appStore: "https://play.google.com/store/apps/details?id=com.app.beautyspotapp&hl=en"
+    }
+  },
+  {
+    id: "tegal-app",
+    categories: ["App Development"],
+    type: "case-study",
+    status: "completed",
+    meta: {
+      title: "Tegal App",
+      slug: "tegal-app",
+      date: "2026-06-9",
+    },
+    client: {
+      name: "Syrol",
+    },
+    overview: {
+      summary: "An iOS-based matchmaking and AI-powered assistant app designed to help users find meaningful, marriage-focused relationships.",
+      problem: "Users needed a more intelligent and personalized matchmaking experience that goes beyond traditional search-based platforms.",
+      solution: "We developed an iOS application integrated with AI assistant capabilities to help users generate matches, receive smart recommendations, and enhance their journey toward meaningful relationships",
+      outcome: "Delivered a smart matchmaking ecosystem combining AI-driven assistance with a seamless iOS experience to improve user engagement and match quality.",
+    },
+    services: ["iOS App Development", "AI Integration", "UI/UX Design", "Backend Development"],
+    value: "Enhanced user experience through AI-powered matchmaking and intelligent relationship guidance features.",
+    images: { thumbnail: "/projects/tegal.png", cover: "/projects/tegal.png", gallery: [] },
+    links: {
+      appStore: "https://play.google.com/store/apps/details?id=com.syrol.tegal"
+    }
+  },
   /*
   {
     id: "salamly-app",
@@ -701,56 +753,5 @@ export const projects = [
       website: "https://technologiesedu.com/"
     }
   },
-  {
-    id: "beauty-spot-app",
-    categories: ["App Development"],
-    type: "case-study",
-    status: "completed",
-    meta: {
-      title: "Beauty Spot App",
-      slug: "beauty-spot-app",
-      date: "2026-05-7",
-    },
-    client: {
-      name: "Beauty Spot",
-    },
-    overview: {
-      summary: "A modern beauty marketplace app connecting clients with beauty professionals across the UK.",
-      problem: "Clients faced difficulty finding trusted beauty service providers with transparent pricing, authentic reviews, and accessible portfolios in one platform, while beauty professionals lacked an efficient way to reach new customers.",
-      solution: "We designed and developed a scalable mobile app with a robust backend system that enables users to discover, compare, and book beauty professionals based on location, pricing, ratings, and service availability.",
-      outcome: "Delivered a seamless digital ecosystem that improved service discovery, increased bookings, and helped beauty professionals expand their client base",
-    },
-    services: ["App Development", "UI/UX Design"],
-    value: "Created a reliable beauty service marketplace with a smooth booking experience and strong backend infrastructure.",
-    images: { thumbnail: "/projects/beautyspot.png", cover: "/projects/beautyspot.png", gallery: [] },
-    links: {
-      appStore: "https://play.google.com/store/apps/details?id=com.app.beautyspotapp&hl=en"
-    }
-  },
-  {
-    id: "tegal-app",
-    categories: ["App Development"],
-    type: "case-study",
-    status: "completed",
-    meta: {
-      title: "Tegal App",
-      slug: "tegal-app",
-      date: "2026-06-9",
-    },
-    client: {
-      name: "Syrol",
-    },
-    overview: {
-      summary: "An iOS-based matchmaking and AI-powered assistant app designed to help users find meaningful, marriage-focused relationships.",
-      problem: "Users needed a more intelligent and personalized matchmaking experience that goes beyond traditional search-based platforms.",
-      solution: "We developed an iOS application integrated with AI assistant capabilities to help users generate matches, receive smart recommendations, and enhance their journey toward meaningful relationships",
-      outcome: "Delivered a smart matchmaking ecosystem combining AI-driven assistance with a seamless iOS experience to improve user engagement and match quality.",
-    },
-    services: ["iOS App Development", "AI Integration", "UI/UX Design", "Backend Development"],
-    value: "Enhanced user experience through AI-powered matchmaking and intelligent relationship guidance features.",
-    images: { thumbnail: "/projects/tegal.png", cover: "/projects/tegal.png", gallery: [] },
-    links: {
-      appStore: "https://play.google.com/store/apps/details?id=com.syrol.tegal"
-    }
-  },
+ 
 ];
