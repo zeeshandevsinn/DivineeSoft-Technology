@@ -4,10 +4,10 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
-  className?: string; // Container class
-  textClassName?: string; // Text class
-  iconClassName?: string; // Icon class
-  showText?: boolean; // Toggle text visibility (useful for mobile if needed, though usually always shown)
+  className?: string; 
+  textClassName?: string;
+  iconClassName?: string;
+  showText?: boolean; 
   isFooter?: boolean; // Prop to adjust styling for footer context if needed
   forceWhite?: boolean; // Force white text (e.g. for transparent header)
 }
