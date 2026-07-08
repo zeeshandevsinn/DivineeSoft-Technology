@@ -101,11 +101,13 @@
   --popover-foreground: #2D3E50;
 
   /* Primary - DivineeSoft Blue */
-  --primary: #4A90D9;
+  /* --primary: #4A90D9; */
+  --primary: #094BF0;
   --primary-foreground: #FFFFFF;
 
   /* Secondary - DivineeSoft Teal */
-  --secondary: #2BC4B4;
+  /* --secondary: #2BC4B4; */
+  --secondary: #094BF0;
   --secondary-foreground: #FFFFFF;
 
   --muted: #F4FBFF;
@@ -140,11 +142,13 @@
   --popover-foreground: #FFFFFF;
 
   /* Primary - DivineeSoft Blue */
-  --primary: #4A90D9;
+  /* --primary: #4A90D9; */
+  --primary: #094BF0;
   --primary-foreground: #FFFFFF;
 
   /* Secondary - DivineeSoft Teal */
-  --secondary: #2BC4B4;
+  /* --secondary: #2BC4B4; */
+  --secondary: #094BF0;
   --secondary-foreground: #FFFFFF;
 
   --muted: #1E3A5F;

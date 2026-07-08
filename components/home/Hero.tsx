@@ -10,7 +10,6 @@ import { useEffect } from "react";
 import Image from "next/image";
 
 export default function Hero() {
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image & Overlay */}
@@ -20,13 +19,13 @@ export default function Hero() {
           src="/mainBg.jpeg"
           alt="Office Background"
           fill
-          className="object-cover"
+          className="object-fit"
           priority
           sizes="100vw"
           quality={85}
         />
       </div>
-
+      /*{" "}
       <div className="container mx-auto px-6 relative z-10 pb-10">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
           {/* <motion.div
@@ -60,7 +59,9 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-slate-200 mb-12 max-w-2xl leading-relaxed"
           >
-            We are Divinee Soft Technology. A full-service agency delivering smart, creative, and result-driven solutions to help your business grow online.
+            We are Divinee Soft Technology. A full-service agency delivering
+            smart, creative, and result-driven solutions to help your business
+            grow online.
           </motion.p>
 
           <motion.div
@@ -74,12 +75,21 @@ export default function Hero() {
               className="bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full px-8 h-14 text-lg shadow-lg shadow-secondary/20"
               onClick={async () => {
                 const cal = await getCalApi({});
-                cal("modal", { calLink: process.env.NEXT_PUBLIC_CAL_LINK || "zeeshan-malik-x0xcrz/30min" });
+                cal("modal", {
+                  calLink:
+                    process.env.NEXT_PUBLIC_CAL_LINK ||
+                    "zeeshan-malik-x0xcrz/30min",
+                });
               }}
             >
               Book Meeting <Calendar className="ml-2 w-5 h-5" />
             </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full px-8 h-14 text-lg border-white/20 hover:bg-white/10 text-white hover:text-white bg-transparent">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="rounded-full px-8 h-14 text-lg border-white/20 hover:bg-white/10 text-white hover:text-white bg-transparent"
+            >
               <Link href="/case-studies">View Our Work</Link>
             </Button>
           </motion.div>
@@ -93,7 +103,7 @@ export default function Hero() {
             {[
               "Production-ready AI & SaaS systems",
               "Client-focused delivery",
-              "Modern full-stack architecture"
+              "Modern full-stack architecture",
             ].map((item, i) => (
               <div
                 key={i}
@@ -104,7 +114,8 @@ export default function Hero() {
               </div>
             ))}
           </motion.div>
-        </div>
+        </div>{" "}
+        /
       </div>
     </section>
   );
