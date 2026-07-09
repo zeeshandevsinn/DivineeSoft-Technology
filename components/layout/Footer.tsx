@@ -27,7 +27,8 @@ export default function Footer() {
             <Logo isFooter />
 
             <p className="text-muted-foreground leading-relaxed">
-              We are a full-service digital agency helping brands grow through innovation, design, and technology.
+              We are a full-service digital agency helping brands grow through
+              innovation, design, and technology.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -54,10 +55,13 @@ export default function Footer() {
                 { label: "Our Services", href: "/services" },
                 { label: "Case Studies", href: "/case-studies" },
                 { label: "Blog", href: "/blog" },
-                { label: "Contact Us", href: "/contact" }
+                { label: "Contact Us", href: "/contact" },
               ].map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="hover:text-primary transition-colors flex items-center gap-2">
+                  <Link
+                    href={item.href}
+                    className="hover:text-primary transition-colors flex items-center gap-2"
+                  >
                     <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
                     {item.label}
                   </Link>
@@ -72,7 +76,10 @@ export default function Footer() {
             <ul className="space-y-4">
               {services.slice(0, 6).map((service) => (
                 <li key={service.id}>
-                  <Link href={`/services/${service.id}`} className="hover:text-primary transition-colors flex items-center gap-2">
+                  <Link
+                    href={`/services/${service.id}`}
+                    className="hover:text-primary transition-colors flex items-center gap-2"
+                  >
                     <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
                     {service.title}
                   </Link>
@@ -90,8 +97,12 @@ export default function Footer() {
                   <MapPin size={18} />
                 </div>
                 <div>
-                  <span className="block text-white font-medium mb-1">Pakistan</span>
-                  <span className="text-sm">House 4/5, Street 62 , near Sharief Park Multan Road Lahore</span>
+                  <span className="block text-white font-medium mb-1">
+                    Pakistan
+                  </span>
+                  <span className="text-sm">
+                    House 4/5, Street 62 , near Sharief Park Multan Road Lahore
+                  </span>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -99,14 +110,16 @@ export default function Footer() {
                   <FaWhatsapp size={18} />
                 </div>
                 <div>
-                  <span className="block text-white font-medium mb-1">WhatsApp</span>
+                  <span className="block text-white font-medium mb-1">
+                    WhatsApp
+                  </span>
                   <a
-                    href="https://wa.me/923097325208"
+                    href="https://wa.me/+923146256754"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm hover:text-white transition-colors"
                   >
-                    +92 309 7325208
+                    +92 314 6256754
                   </a>
                 </div>
               </li>
@@ -115,8 +128,15 @@ export default function Footer() {
                   <Mail size={18} />
                 </div>
                 <div>
-                  <span className="block text-white font-medium mb-1">Email Us</span>
-                  <a href="mailto:zeemalik0110@gmail.com" className="text-sm hover:text-white transition-colors">zeemalik0110@gmail.com</a>
+                  <span className="block text-white font-medium mb-1">
+                    Email Us
+                  </span>
+                  <a
+                    href="mailto:divineesofttechnologies@gmail.com"
+                    className="text-sm hover:text-white transition-colors"
+                  >
+                    divineesofttechnologies@gmail.com
+                  </a>
                 </div>
               </li>
             </ul>
@@ -125,11 +145,19 @@ export default function Footer() {
 
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} DivineeSoft Technology. All rights reserved.
+            © {new Date().getFullYear()} DivineeSoft Technology. All rights
+            reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link
+              href="/privacy"
+              className="hover:text-white transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-white transition-colors">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>

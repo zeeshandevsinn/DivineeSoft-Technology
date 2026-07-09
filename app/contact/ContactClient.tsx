@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -125,8 +124,6 @@ export default function ContactClient() {
 
   return (
     <>
-
-
       <main className="min-h-screen bg-background">
         {/* HERO */}
         <section className="bg-primary text-primary-foreground py-16 md:py-24">
@@ -147,7 +144,7 @@ export default function ContactClient() {
 
         {/* CONTENT */}
         <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid gap-10 lg:grid-cols-3 max-w-6xl mx-auto">
+          <div className="grid gap-10 lg:grid-cols-3 max-w-7xl mx-auto">
             {/* CONTACT INFO */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -164,14 +161,14 @@ export default function ContactClient() {
                     <InfoItem
                       icon={<Phone />}
                       title="Phone"
-                      value="+92 309 7325208"
-                      link="tel:+923097325208"
+                      value="+92 314 6256754"
+                      link="tel:+923146256754"
                     />
                     <InfoItem
                       icon={<Mail />}
                       title="Email"
-                      value="zeemalik0110@gmail.com"
-                      link="mailto:zeemalik0110@gmail.com"
+                      value="divineesofttechnologies@gmail.com"
+                      link="divineesofttechnologies@gmail.com"
                     />
                     <InfoItem
                       icon={<MapPin />}
@@ -186,7 +183,7 @@ export default function ContactClient() {
                   </div>
                 </div>
 
-                <p className="text-sm text-muted-foreground mt-10">
+                <p className="text-sm  mt-10 text-black">
                   We usually respond within 24 hours.
                 </p>
               </div>
@@ -201,12 +198,10 @@ export default function ContactClient() {
               <Card className="shadow-lg">
                 <CardContent className="p-8 md:px-10 py-6">
                   <p className="text-muted-foreground mb-10 max-w-lg italic">
-                    Have questions or need support? Our team is ready to help. Drop us a message, and we&apos;ll get back to you shortly.
+                    Have questions or need support? Our team is ready to help.
+                    Drop us a message, and we&apos;ll get back to you shortly.
                   </p>
-                  <form
-                    onSubmit={handleSubmit}
-                    className="space-y-6"
-                  >
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <Input
                         placeholder="Your Name"
@@ -273,11 +268,13 @@ export default function ContactClient() {
                       </SelectTrigger>
                       <SelectContent className="bg-background text-foreground border-border">
                         {SERVICES.map((s) => (
-                          <SelectItem key={s.value} value={s.value} className="focus:bg-accent focus:text-accent-foreground">
+                          <SelectItem
+                            key={s.value}
+                            value={s.value}
+                            className="focus:bg-accent focus:text-accent-foreground"
+                          >
                             <div className="flex flex-col">
-                              <span className="font-medium">
-                                {s.label}
-                              </span>
+                              <span className="font-medium">{s.label}</span>
                               <span className="text-xs text-muted-foreground">
                                 {s.description}
                               </span>
@@ -305,9 +302,7 @@ export default function ContactClient() {
                       disabled={status === "loading"}
                       className="h-12 w-full sm:w-auto px-10 bg-secondary text-secondary-foreground hover:bg-secondary/90"
                     >
-                      {status === "loading"
-                        ? "Sending..."
-                        : "Send Message"}
+                      {status === "loading" ? "Sending..." : "Send Message"}
                       <Send className="ml-2" size={18} />
                     </Button>
 
@@ -376,12 +371,9 @@ function InfoItem({
     <div className="flex gap-4 items-start">
       <div className="text-primary">{icon}</div>
       <div>
-        <p className="text-sm text-muted-foreground">{title}</p>
+        <p className="text-sm text-black">{title}</p>
         {link ? (
-          <a
-            href={link}
-            className="font-medium hover:text-primary"
-          >
+          <a href={link} className="font-medium hover:text-primary">
             {value}
           </a>
         ) : (

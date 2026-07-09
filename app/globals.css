@@ -46,6 +46,7 @@
 
   --color-muted-foreground: var(--muted-foreground);
 
+  /* --color-accent: var(--accent); */
   --color-accent: var(--accent);
 
   --color-accent-foreground: var(--accent-foreground);
@@ -117,8 +118,10 @@
   --muted-foreground: #6B7C93;
 
   /* Accent - DivineeSoft Bright Cyan */
-  --accent: #00E5CC;
-  --accent-foreground: #0B1A2E;
+  /* --accent: #00E5CC; */
+  --accent: #094BF0;
+  /* --accent-foreground: #0B1A2E; */
+  --accent-foreground: #ffffff;
 
   --destructive: oklch(0.577 0.245 27.325);
 
@@ -160,15 +163,17 @@
   --muted-foreground: #A0B4C8;
 
   /* Accent - DivineeSoft Bright Cyan */
-  --accent: #00E5CC;
-  --accent-foreground: #0B1A2E;
+  /* --accent: #00E5CC; */
+  --accent: #094BF0;
+  /* --accent-foreground: #0B1A2E; */
+  --accent-foreground: #ffffff;
 
   --destructive: oklch(0.704 0.191 22.216);
 
   --border: #1E3A5F;
   /* Dark Border */
   --input: #1E3A5F;
-  --ring: #00E5CC;
+  --ring: #094BF0;
   /* Accent Border on focus */
 
   --chart-1: oklch(0.488 0.243 264.376);

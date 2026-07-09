@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 interface LogoProps {
   className?: string;
@@ -24,6 +25,15 @@ export default function Logo({
   const shouldUseWhite = isFooter || forceWhite;
 
   const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null; // ya placeholder/logo skeleton
+  }
 
   const logoSrc = shouldUseWhite
     ? "/whiteLogo.png"
