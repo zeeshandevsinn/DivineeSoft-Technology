@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 
 interface LogoProps {
   className?: string;
@@ -22,6 +23,17 @@ export default function Logo({
 }: LogoProps) {
   const shouldUseWhite = isFooter || forceWhite;
 
+  const { resolvedTheme } = useTheme();
+
+  const logoSrc = shouldUseWhite
+    ? "/whiteLogo.png"
+    : resolvedTheme === "light"
+      ? "/newlogo.png"
+      : "/whiteLogo.png";
+
+  console.log(
+    `Logo Debug -> isFooter: ${isFooter}, forceWhite: ${forceWhite}, resolvedTheme: ${resolvedTheme}, logoSrc: ${logoSrc}`,
+  );
   return (
     <Link href="/" className={cn("flex items-center gap-3 group", className)}>
       {/* Logo Icon */}
@@ -35,7 +47,7 @@ export default function Logo({
         )}
       >
         <img
-          src="/newlogo.png"
+          src={logoSrc}
           alt="DivineeSoft Logo"
           className="w-full h-full object-contain"
         />

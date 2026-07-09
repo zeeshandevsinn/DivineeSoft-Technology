@@ -91,8 +91,10 @@
 
   /* Background Colors */
   --background: #FFFFFF;
-  --foreground: #2D3E50;
+  /* --foreground: #2D3E50; */
+  --foreground: #000000;
   /* Body text */
+  --menu: #000000;
 
   --card: #FFFFFF;
   --card-foreground: #2D3E50;
@@ -137,6 +139,8 @@
   --card: #112236;
   /* Cards on dark bg */
   --card-foreground: #FFFFFF;
+/* menu in dark  */
+  --menu: #ffffff;
 
   --popover: #112236;
   --popover-foreground: #FFFFFF;

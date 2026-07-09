@@ -97,10 +97,11 @@ export default function Header() {
       >
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           {/* ---------- LOGO ---------- */}
-          <Logo forceWhite={isTransparentPage && !scrolled} />
+          {/* <Logo forceWhite={isTransparentPage && !scrolled} /> */}
+          <Logo />
 
           {/* ---------- DESKTOP NAV ---------- */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8 ">
             {navLinks.map((link) => {
               if (link.name === "Services") {
                 return (
@@ -108,8 +109,7 @@ export default function Header() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "text-sm font-medium flex items-center gap-1 py-4 relative",
-                        navTextClass,
+                        "text-sm font-medium flex items-center gap-1 py-4 relative text-menu",
                       )}
                     >
                       Services
@@ -148,8 +148,7 @@ export default function Header() {
                   key={link.name}
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium py-2 relative group",
-                    navTextClass,
+                    "text-sm font-medium py-2 relative group text-menu",
                   )}
                 >
                   {link.name}

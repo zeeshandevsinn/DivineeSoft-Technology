@@ -24,8 +24,7 @@ export default function Hero() {
           sizes="100vw"
           quality={85}
         />
-      </div>
-      /*{" "}
+      </div>{" "}
       <div className="container mx-auto px-6 relative z-10 pb-10">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
           {/* <motion.div

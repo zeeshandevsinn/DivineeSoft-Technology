@@ -6,7 +6,6 @@ import FAQ from "@/components/home/FAQ";
 import Testimonials from "@/components/home/Testimonials";
 import CalInline from "@/components/CalInline";
 import { Metadata } from "next";
-import Hero from "@/components/home/Hero";
 
 export const metadata: Metadata = {
   title: "DivineeSoft Technology | Transform Ideas Into Digital Success",
@@ -19,8 +18,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <Hero />
-      {/* <HeroSection2 /> */}
+      <HeroSection2 />
       <About />
       <Services />
       <Stats />
