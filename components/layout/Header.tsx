@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import Logo from "@/components/Logo";
-import { Menu, X, Mail, MapPin, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { services } from "@/lib/data";
 import {
   motion,
@@ -18,8 +18,12 @@ import { cn } from "@/lib/utils";
 
 /* ================= ROUTE LOGIC ================= */
 
+// const isTransparentRoute = (pathname: string) => {
+//   return pathname === "/";
+// };
 const isTransparentRoute = (pathname: string) => {
-  return pathname === "/";
+  
+  return false; // Disable transparent header for all routes
 };
 
 /* ================= COMPONENT ================= */
@@ -32,6 +36,19 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setMobileServicesOpen(false);
+  };
+
+  const openMobileMenu = () => {
+    setMobileMenuOpen(true);
+  };
+
+  const toggleMobileServices = () => {
+    setMobileServicesOpen((prev) => !prev);
+  };
 
   /* ---------- HEADER BEHAVIOR (SCROLL ONLY) ---------- */
 
@@ -52,18 +69,14 @@ export default function Header() {
   /* ---------- ROUTE STYLING (NO LAYOUT IMPACT) ---------- */
 
   const isTransparentPage = isTransparentRoute(pathname);
+  const isLightHeader = isTransparentPage && !scrolled;
 
-  const navTextClass =
-    isTransparentPage && !scrolled
-      ? "text-white hover:text-white/80"
-      : "text-foreground hover:text-primary";
-
-  /* ---------- CLOSE MOBILE MENU ON ROUTE CHANGE ---------- */
-
-  useEffect(() => {
-    setMobileMenuOpen(false);
-    setMobileServicesOpen(false);
-  }, [pathname]);
+  // Single source of truth for header-text color, used by
+  // every interactive element in the header (desktop links,
+  // services dropdown trigger, mobile trigger button).
+  const navTextClass = isLightHeader
+    ? "text-white hover:text-white/80"
+    : "text-foreground hover:text-primary";
 
   /* ---------- NAV LINKS ---------- */
 
@@ -72,10 +85,7 @@ export default function Header() {
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Case Studies", href: "/case-studies" },
-    {
-      name: "Blogs",
-      href: "https://darkgreen-mule-747600.hostingersite.com/blog/",
-    },
+    { name: "Blogs", href: "https://blogs.divineesoft.com" },
   ];
 
   return (
@@ -89,27 +99,27 @@ export default function Header() {
         animate={hidden ? "hidden" : "visible"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-screen",
+          "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
           scrolled
             ? "bg-background/80 backdrop-blur-md shadow-sm border-b border-border"
             : "bg-transparent",
         )}
       >
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 md:h-20">
           {/* ---------- LOGO ---------- */}
-          {/* <Logo forceWhite={isTransparentPage && !scrolled} /> */}
-          <Logo />
+          <Logo forceWhite={isLightHeader} />
 
           {/* ---------- DESKTOP NAV ---------- */}
-          <nav className="hidden md:flex items-center gap-8 ">
+          <nav className="hidden items-center gap-6 lg:flex lg:gap-8">
             {navLinks.map((link) => {
               if (link.name === "Services") {
                 return (
-                  <div key={link.name} className="relative group">
+                  <div key={link.name} className="group relative">
                     <Link
                       href={link.href}
                       className={cn(
-                        "text-sm font-medium flex items-center gap-1 py-4 relative text-menu",
+                        "flex items-center gap-1 py-4 text-sm font-medium transition-colors",
+                        navTextClass,
                       )}
                     >
                       Services
@@ -117,22 +127,22 @@ export default function Header() {
                         size={14}
                         className="transition-transform group-hover:rotate-180"
                       />
-                      <span className="absolute bottom-3 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+                      <span className="absolute bottom-3 left-0 h-0.5 w-0 bg-primary transition-all group-hover:w-full" />
                     </Link>
 
                     {/* Dropdown */}
-                    <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                      <div className="w-64 bg-card border border-border rounded-xl shadow-xl p-2">
+                    <div className="invisible absolute top-full left-0 pt-2 opacity-0 transition-all group-hover:visible group-hover:opacity-100">
+                      <div className="w-64 rounded-xl border border-border bg-card p-2 shadow-xl">
                         {services.map((service) => (
                           <Link
                             key={service.id}
                             href={`/services/${service.id}`}
-                            className="block px-4 py-3 rounded-lg hover:bg-muted transition"
+                            className="block rounded-lg px-4 py-3 transition hover:bg-muted"
                           >
                             <div className="text-sm font-medium text-foreground">
                               {service.title}
                             </div>
-                            <div className="text-xs text-muted-foreground line-clamp-1">
+                            <div className="line-clamp-1 text-xs text-muted-foreground">
                               {service.desc}
                             </div>
                           </Link>
@@ -147,31 +157,37 @@ export default function Header() {
                 <Link
                   key={link.name}
                   href={link.href}
+                  onClick={closeMobileMenu}
                   className={cn(
-                    "text-sm font-medium py-2 relative group text-menu",
+                    "group relative py-4 text-sm font-medium transition-colors",
+                    navTextClass,
                   )}
                 >
                   {link.name}
-                  <span className="absolute bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+                  <span className="absolute bottom-3 left-0 h-0.5 w-0 bg-primary transition-all group-hover:w-full" />
                 </Link>
               );
             })}
           </nav>
 
           {/* ---------- CTA & MOBILE ---------- */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             <ThemeToggle />
 
-            <Button asChild className="hidden md:inline-flex rounded-full px-6">
+            <Button asChild className="hidden rounded-full px-6 lg:inline-flex">
               <Link href="/contact">Get a Quote</Link>
             </Button>
 
             <button
-              onClick={() => setMobileMenuOpen(true)}
-              className={cn("md:hidden p-2", navTextClass)}
-              aria-label="Open mobile menu"
+              onClick={openMobileMenu}
+              aria-label="Open menu"
+              aria-expanded={mobileMenuOpen}
+              className={cn(
+                "rounded-lg p-2 transition-colors lg:hidden",
+                navTextClass,
+              )}
             >
-              <Menu size={28} />
+              <Menu size={26} />
             </button>
           </div>
         </div>
@@ -184,28 +200,36 @@ export default function Header() {
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ type: "spring", stiffness: 200, damping: 25 }}
-            className="fixed inset-0 z-[60] bg-background md:hidden flex flex-col"
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 28,
+            }}
+            className="fixed inset-0 z-[60] flex flex-col bg-background lg:hidden"
           >
             {/* Top */}
-            <div className="p-6 flex justify-between items-center border-b">
-              <span className="font-bold text-lg">Menu</span>
-              <button onClick={() => setMobileMenuOpen(false)}>
-                <X size={28} />
+            <div className="flex items-center justify-between border-b p-6">
+              <span className="text-lg font-bold">Menu</span>
+              <button
+                onClick={closeMobileMenu}
+                aria-label="Close menu"
+                className="rounded-lg p-2 transition-colors hover:bg-muted"
+              >
+                <X size={26} />
               </button>
             </div>
 
             {/* Links */}
-            <div className="flex-1 p-6 flex flex-col gap-6">
+            <div className="flex flex-1 flex-col gap-6 overflow-y-auto p-6">
               {navLinks.map((link) => {
                 if (link.name === "Services") {
                   return (
                     <div key={link.name}>
                       <button
-                        onClick={() =>
-                          setMobileServicesOpen(!mobileServicesOpen)
-                        }
-                        className="flex justify-between w-full text-2xl font-bold"
+                        onClick={toggleMobileServices}
+                        aria-expanded={mobileServicesOpen}
+                        aria-controls="mobile-services-menu"
+                        className="flex w-full justify-between text-xl font-semibold"
                       >
                         Services
                         <ChevronDown
@@ -219,16 +243,18 @@ export default function Header() {
                       <AnimatePresence>
                         {mobileServicesOpen && (
                           <motion.div
+                            id="mobile-services-menu"
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden mt-4 pl-4 flex flex-col gap-3"
+                            className="mt-4 flex flex-col gap-3 overflow-hidden pl-4"
                           >
                             {services.map((service) => (
                               <Link
                                 key={service.id}
                                 href={`/services/${service.id}`}
-                                className="text-muted-foreground hover:text-primary"
+                                onClick={closeMobileMenu}
+                                className="text-muted-foreground transition-colors hover:text-primary"
                               >
                                 {service.title}
                               </Link>
@@ -244,12 +270,19 @@ export default function Header() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="text-2xl font-bold"
+                    onClick={closeMobileMenu}
+                    className="text-xl font-semibold"
                   >
                     {link.name}
                   </Link>
                 );
               })}
+
+              <Button asChild className="mt-2 w-full rounded-full">
+                <Link href="/contact" onClick={closeMobileMenu}>
+                  Get a Quote
+                </Link>
+              </Button>
             </div>
           </motion.div>
         )}
