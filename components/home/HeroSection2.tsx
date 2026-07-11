@@ -87,7 +87,7 @@ export default function HeroSection2() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.12 }}
-            className="relative mx-auto aspect-square w-full max-w-[630px] overflow-hidden rounded-[24px] bg-[linear-gradient(155deg,#0b0e14_0%,#101a33_55%,#16224a_100%)] [clip-path:polygon(8%_0,100%_0,100%_92%,92%_100%,0_100%,0_8%)] lg:mx-0"
+            className="relative mx-auto aspect-square w-full max-w-[630px] overflow-hidden rounded-[24px] bg-[linear-gradient(155deg,#0b0e14_0%,#101a33_55%,#16224a_100%)] [clip-path:polygon(8%_0,100%_0,100%_92%,92%_100%,0_100%,0_8%)] lg:mx-0 hidden lg:block"
             aria-label="Forward motion signal mark"
           >
             <svg
