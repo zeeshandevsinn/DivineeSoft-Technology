@@ -391,31 +391,31 @@ export const faqs = [
 
 export const blogPosts = [
   {
-    id: 'future-of-ai-marketing',
-    title: 'The Future of AI in Digital Marketing',
-    excerpt: 'How artificial intelligence is reshaping the landscape of digital advertising and content creation.',
-    date: 'Oct 12, 2023',
-    author: 'Salman Ramzan',
-    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200&h=800',
-    category: 'AI Services'
+    id: '1',
+    title: 'How to Detect AI Voices- An Ultimate Guide',
+    excerpt: 'Synthetic audio generation is getting better with the rise of artificial intelligence. Learn how to detect AI voices with or…',
+    date: 'Jul 11, 2026',
+    image: '/blog/How-to-Detect-AI-Voices-768x387.webp',
+    category: 'AI Services',
+    url: "https://blogs.divineesoft.com/how-to-detect-ai-voices-an-ultimate-guide/"
   },
   {
-    id: 'seo-best-practices-2024',
-    title: 'SEO Best Practices for 2024',
-    excerpt: 'Stay ahead of the curve with these essential SEO strategies for the upcoming year.',
-    date: 'Nov 05, 2023',
-    author: 'Shayan Kashif',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200&h=800',
-    category: 'SEO'
+    id: '2',
+    title: 'Machine learning applications: 5 real-world problems that ML can solve',
+    excerpt: 'Explore machine learning applications to solve real-world problems such as disease diagnosis, fraud detection, environmental change detection, and more. Machine…',
+    date: 'Jul 11, 2026',
+    image: '/blog/machine-learning-applications-768x387.webp',
+    category: 'Machine Learning',
+    url: "https://blogs.divineesoft.com/machine-learning-applications-5-real-world-problems-that-ml-can-solve/"
   },
   {
-    id: 'web-performance-optimization',
-    title: 'Mastering Web Performance Optimization',
-    excerpt: 'Techniques to speed up your website and improve user experience and search rankings.',
-    date: 'Dec 01, 2023',
-    author: 'MD Zeeshan',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200&h=800',
-    category: 'Web Development'
+    id: '3n',
+    title: 'Top 5 Best AI voice changers in 2025',
+    excerpt: 'Recording a voiceover with professional-sounding audio is not as easy as you might think, especially if you don’t have access…',
+    date: 'Jul 10, 2026',
+    image: '/blog/Best-AI-voice-changers-768x387.webp',
+    category: 'AI',
+    url: "https://blogs.divineesoft.com/top-5-best-ai-voice-changers-in-2025/"
   }
 ];
 
