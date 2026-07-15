@@ -22,7 +22,6 @@ import { cn } from "@/lib/utils";
 //   return pathname === "/";
 // };
 const isTransparentRoute = (pathname: string) => {
-  
   return false; // Disable transparent header for all routes
 };
 

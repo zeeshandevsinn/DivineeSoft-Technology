@@ -1,80 +1,86 @@
 "use client";
 
 import { blogPosts } from "@/lib/data";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import PlaceholderImage from "@/components/ui/PlaceholderImage";
 import Link from "next/link";
-import { ArrowRight, Calendar, User } from "lucide-react";
-import Image from "next/image";
+import { ArrowRight, CalendarDays } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function BlogPreview() {
   return (
-    <section className="py-24 bg-background">
+    <section className="bg-background py-24 text-foreground">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-          <div className="max-w-2xl">
-            <span className="text-primary font-bold tracking-wider uppercase text-sm mb-4 block">Our Blog</span>
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Latest News & <span className="text-primary">Insights</span>
+        <div className="mb-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <span className="mb-4 block text-sm font-bold uppercase tracking-wider text-primary">
+              Our Blog
+            </span>
+            <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+              Latest <span className="text-primary">Insights</span>
             </h2>
-            <p className="text-muted-foreground text-lg">
-              Stay updated with the latest trends in digital marketing, development, and design.
-            </p>
           </div>
-          <Button asChild variant="outline" className="rounded-full px-6 border-border hover:bg-muted text-muted-foreground">
-            <Link href="/blog">
-              View All Posts <ArrowRight className="ml-2 w-4 h-4" />
-            </Link>
-          </Button>
+
+          <Link
+            href="https://blogs.divineesoft.com/"
+            className="inline-flex items-center gap-2 text-sm font-bold text-primary transition-colors hover:text-foreground"
+          >
+            View all articles <ArrowRight className="size-4" />
+          </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {blogPosts.map((post, i) => (
-            <motion.div
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          {blogPosts.slice(0, 3).map((post, index) => (
+            <motion.article
               key={post.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 22 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: index * 0.1 }}
+              className="group relative flex min-h-full overflow-hidden rounded-2xl border border-border bg-card text-card-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl"
             >
-              <Card className="h-full hover:shadow-xl transition-all duration-300 border-border overflow-hidden group">
-                <div className="relative aspect-video bg-muted overflow-hidden">
-                  <Image
+              <div className="absolute inset-x-0 top-0 z-20 h-1.5 bg-gradient-to-r from-fuchsia-500 via-primary to-fuchsia-400" />
+
+              <Link
+                href={`${post.url}`}
+                className="flex h-full w-full flex-col"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                  <PlaceholderImage
                     src={post.image}
                     alt={post.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    containerClassName="absolute inset-0"
                   />
-                  <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary uppercase tracking-wide">
+                  <span className="absolute left-5 top-5 rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20">
                     {post.category}
-                  </div>
+                  </span>
                 </div>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
-                    <div className="flex items-center gap-1">
-                      <Calendar size={14} />
-                      {post.date}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <User size={14} />
-                      {post.author}
-                    </div>
+
+                <div className="flex flex-1 flex-col p-7">
+                  <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-foreground/80 dark:text-card-foreground/80">
+                    <CalendarDays className="size-5" />
+                    {post.date}
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                    <Link href={`/blog/${post.id}`}>
-                      {post.title}
-                    </Link>
+
+                  <h3 className="text-2xl font-bold leading-tight text-foreground transition-colors group-hover:text-primary dark:text-card-foreground">
+                    {post.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm line-clamp-3 mb-6">
+
+                  <p className="mt-5 line-clamp-3 text-base leading-relaxed text-muted-foreground">
                     {post.excerpt}
                   </p>
-                  <Link href={`/blog/${post.id}`} className="inline-flex items-center text-primary font-semibold text-sm hover:gap-2 transition-all">
-                    Read More <ArrowRight size={16} className="ml-1" />
-                  </Link>
-                </CardContent>
-              </Card>
-            </motion.div>
+
+                  <div className="mt-auto pt-8">
+                    <div className="border-t border-border pt-5">
+                      <span className="inline-flex items-center gap-2 text-base font-bold text-foreground transition-colors group-hover:text-primary dark:text-card-foreground">
+                        Read More <ArrowRight className="size-5" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </motion.article>
           ))}
         </div>
       </div>

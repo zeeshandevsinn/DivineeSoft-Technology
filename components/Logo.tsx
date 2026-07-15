@@ -33,10 +33,7 @@ export default function Logo({
   if (!mounted) {
     return (
       <div
-        className={cn(
-          "h-10 w-28 sm:h-11 sm:w-32 md:h-12 md:w-36",
-          className,
-        )}
+        className={cn("h-10 w-28 sm:h-11 sm:w-32 md:h-12 md:w-36", className)}
       />
     );
   }
@@ -55,7 +52,7 @@ export default function Logo({
       <div
         className={cn(
           "relative h-10 w-28 transition-transform duration-300 sm:h-11 sm:w-32 md:h-12 md:w-36",
-          "group-hover:scale-105",
+          "group-hover:scale-105 ",
           iconClassName,
         )}
       >
