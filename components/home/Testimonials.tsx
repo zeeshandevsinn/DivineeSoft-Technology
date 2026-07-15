@@ -66,7 +66,7 @@ export default function Testimonials() {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="py-24 bg-background overflow-hidden">
+    <section className="py-24 bg-muted overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-3xl">

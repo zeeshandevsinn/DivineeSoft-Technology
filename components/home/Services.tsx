@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-muted">
+    <section id="services" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.span

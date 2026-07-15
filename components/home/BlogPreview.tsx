@@ -1,12 +1,101 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { blogPosts } from "@/lib/data";
 import PlaceholderImage from "@/components/ui/PlaceholderImage";
 import Link from "next/link";
 import { ArrowRight, CalendarDays } from "lucide-react";
 import { motion } from "framer-motion";
 
+// Helper to strip HTML tags and decode standard entities
+const stripHtml = (html: string) => {
+  if (!html) return "";
+  return html
+    .replace(/<[^>]*>/g, "")
+    .replace(/&#8217;/g, "'")
+    .replace(/&#8216;/g, "'")
+    .replace(/&amp;/g, "&")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&#8211;/g, "–")
+    .replace(/&#8220;/g, '"')
+    .replace(/&#8221;/g, '"')
+    .replace(/&#8230;/g, "...");
+};
+
+// Helper to format ISO date strings into readable ones
+const formatDate = (dateString: string) => {
+  try {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+  } catch {
+    return dateString;
+  }
+};
+
+// Helper to get category name from WordPress term
+const getCategoryName = (post: any) => {
+  const name = post._embedded?.['wp:term']?.[0]?.[0]?.name;
+  if (!name || name === "Uncategorized") return "AI Services";
+  return name;
+};
+
+interface PreviewPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  image: string;
+  category: string;
+  url: string;
+}
+
 export default function BlogPreview() {
+  const [posts, setPosts] = useState<PreviewPost[]>([]);
+
+  useEffect(() => {
+    // Start with fallback posts from data.ts
+    const initialPosts = blogPosts.slice(0, 3).map((post: any) => ({
+      id: post.id,
+      title: post.title,
+      excerpt: post.excerpt,
+      date: post.date,
+      image: post.image,
+      category: post.category || "AI Services",
+      url: post.url || "https://blogs.divineesoft.com",
+    }));
+    setPosts(initialPosts);
+
+    // Fetch live posts from WordPress API
+    async function fetchPosts() {
+      try {
+        const res = await fetch("https://blogs.divineesoft.com/wp-json/wp/v2/posts?per_page=3&_embed");
+        if (res.ok) {
+          const data = await res.json();
+          const mapped = data.map((post: any) => {
+            const imageUrl = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || "/blog-placeholder.png";
+            return {
+              id: post.id.toString(),
+              title: stripHtml(post.title.rendered),
+              excerpt: stripHtml(post.excerpt.rendered),
+              date: formatDate(post.date),
+              image: imageUrl,
+              category: getCategoryName(post),
+              url: post.link,
+            };
+          });
+          setPosts(mapped);
+        }
+      } catch (error) {
+        console.error("Failed to fetch blog posts from WordPress API for homepage preview:", error);
+      }
+    }
+    fetchPosts();
+  }, []);
+
   return (
     <section className="bg-background py-24 text-foreground">
       <div className="container mx-auto px-6">
@@ -29,7 +118,7 @@ export default function BlogPreview() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {blogPosts.slice(0, 3).map((post, index) => (
+          {posts.map((post, index) => (
             <motion.article
               key={post.id}
               initial={{ opacity: 0, y: 22 }}
@@ -40,8 +129,10 @@ export default function BlogPreview() {
             >
               <div className="absolute inset-x-0 top-0 z-20 h-1.5 bg-gradient-to-r from-fuchsia-500 via-primary to-fuchsia-400" />
 
-              <Link
-                href={`${post.url}`}
+              <a
+                href={post.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex h-full w-full flex-col"
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-muted">
@@ -79,7 +170,7 @@ export default function BlogPreview() {
                     </div>
                   </div>
                 </div>
-              </Link>
+              </a>
             </motion.article>
           ))}
         </div>

@@ -56,7 +56,7 @@ export default function FAQSection({ title, titleHighlight, description, items, 
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-muted">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16">
           <div>

@@ -39,7 +39,7 @@ export default function About() {
             className="flex items-center justify-center gap-4 mb-6"
           >
             <div className="h-0.5 w-12 bg-primary"></div>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground">Who We Are</h2>
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground">Who We Are</h2>
             <div className="h-0.5 w-12 bg-primary"></div>
           </motion.div>
           <motion.p
@@ -47,7 +47,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg md:text-xl text-muted-foreground font-medium"
+            className="text-lg md:text-xl text-muted-foreground font-medium leading-relaxed max-w-3xl mx-auto"
           >
             Clients trust us for our deep product expertise, tailored approach, and unwavering focus on long-term results.
           </motion.p>
@@ -60,11 +60,11 @@ export default function About() {
             viewport={{ once: true }}
             className="lg:col-span-1"
           >
-            <h3 className="text-3xl font-bold mb-6 text-foreground">Why Partner With Us?</h3>
+            <h3 className="text-3xl font-extrabold mb-6 text-foreground tracking-tight">Why Partner With Us?</h3>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              We provide premium digital solutions with exceptional service—delivering more value at a more competitive cost.
+              We provide premium digital solutions with exceptional service &mdash; delivering more value at a more competitive cost.
             </p>
-            <Button asChild size="lg" className="rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-6 font-semibold tracking-wide uppercase text-sm shadow-md">
+            <Button asChild size="lg" className="rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-6 font-semibold tracking-wide uppercase text-sm shadow-md transition-all duration-300">
               <Link href="/about">
                 Learn More <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
@@ -81,8 +81,8 @@ export default function About() {
                 transition={{ delay: i * 0.1 }}
                 className="relative group p-6 rounded-2xl hover:bg-muted/50 transition-colors"
               >
-                <div className="absolute top-0 left-0 w-12 h-1 bg-gradient-to-r from-primary to-blue-400 rounded-full mb-6"></div>
-                <h4 className="text-xl font-bold mb-4 mt-8 text-foreground group-hover:text-primary transition-colors">{item.title}</h4>
+                <div className="absolute top-0 left-0 w-12 h-1 bg-gradient-to-r from-primary to-blue-600 rounded-full mb-6"></div>
+                <h4 className="text-xl font-bold mb-4 mt-8 text-foreground group-hover:text-primary transition-colors duration-300">{item.title}</h4>
                 <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                   {item.desc}
                 </p>
