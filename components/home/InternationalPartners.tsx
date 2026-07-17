@@ -2,59 +2,45 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
 
 interface Partner {
   name: string;
   role: string;
-  location: string;
   image: string;
   linkedin?: string;
-  twitter?: string;
 }
 
 const partners: Partner[] = [
   {
     name: "Malik Zeeshan",
-    role: "Co-Founder & Managing Partner",
-    location: "Asia Pacific / Pakistan",
+    role: "CEO of Divineesoft Technologies",
     image: "/partners/zeeshan.png",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
+    linkedin: "https://www.linkedin.com/in/zeeshan-malik-0749a7252",
   },
   {
     name: "Kennan Skipper",
-    role: "Co-Founder & President",
-    location: "North America / United States",
+    role: "CEO of Barberzlink",
     image: "/partners/kennan.png",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
-  },
-  {
-    name: "Tonny",
-    role: "Director of Operations & Partner",
-    location: "European Union / Sweden",
-    image: "/partners/zeeshan.png", // Using Zeeshan's image as requested
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
+    linkedin: "https://www.linkedin.com/in/keenan-skipper-80b151407",
   },
 ];
 
 export default function InternationalPartners() {
   return (
     <section className="relative overflow-hidden bg-background text-foreground dark:bg-[#070b16] dark:text-white py-24 transition-colors duration-300">
-      {/* Background elements */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(9,75,240,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(9,75,240,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
-      <div className="absolute -left-24 top-1/4 h-[350px] w-[350px] rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl pointer-events-none" />
-      <div className="absolute -right-24 bottom-1/4 h-[350px] w-[350px] rounded-full bg-blue-500/5 dark:bg-blue-500/10 blur-3xl pointer-events-none" />
+      {/* 1. Subtle grid lines and large background glow */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(9,75,240,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(9,75,240,0.015)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+      <div className="absolute left-1/4 top-1/3 -z-10 h-[500px] w-[500px] rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl pointer-events-none" />
 
       <div className="container relative z-10 mx-auto px-6">
+        {/* Header Block */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.span
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-primary font-bold tracking-wider uppercase text-sm mb-4 block"
+            className="text-primary font-bold tracking-widest uppercase text-xs mb-3 block"
           >
             Global Leadership
           </motion.span>
@@ -64,7 +50,7 @@ export default function InternationalPartners() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-black text-foreground dark:text-white tracking-tight"
+            className="text-4xl md:text-5xl font-black tracking-tight"
           >
             Our International <span className="text-primary">Partners</span>
           </motion.h2>
@@ -74,75 +60,69 @@ export default function InternationalPartners() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-6 text-muted-foreground dark:text-gray-400 text-lg leading-relaxed"
+            className="mt-4 text-muted-foreground dark:text-gray-400 text-base sm:text-lg leading-relaxed"
           >
             Connecting expertise across continents. Our leadership team coordinates operations 
-            between the US, Europe, and Asia to deliver premium software and digital products globally.
+            globally to deliver premium software and digital products.
           </motion.p>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto justify-center">
+        {/* Partners Grid */}
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto justify-center">
           {partners.map((partner, index) => (
             <motion.div
               key={partner.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.6 }}
-              className="group relative rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:border-primary/20 hover:shadow-lg dark:border-white/[0.06] dark:bg-[#0c1322]/60 dark:hover:border-primary/30 dark:hover:bg-[#0c1322]/85 dark:hover:shadow-2xl dark:hover:shadow-primary/5"
+              transition={{ delay: index * 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -8 }}
+              className="group relative rounded-3xl overflow-hidden border border-border/40 bg-card shadow-md transition-all duration-500 hover:border-primary/30 hover:shadow-2xl dark:border-white/[0.06] dark:bg-[#0c1322]/30 w-full max-w-[360px] mx-auto aspect-[3/4]"
             >
-              {/* Executive Headshot container */}
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 mb-6">
+              {/* Glowing background blob behind card on hover */}
+              <div className="absolute -inset-0.5 -z-10 rounded-3xl bg-gradient-to-r from-primary/30 to-blue-500/30 opacity-0 blur-xl transition-all duration-500 group-hover:opacity-100" />
+
+              {/* Headshot Portrait */}
+              <div className="absolute inset-0 w-full h-full overflow-hidden bg-slate-100 dark:bg-slate-900">
                 <Image
                   src={partner.image}
                   alt={partner.name}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-103"
-                  priority={index < 2}
+                  sizes="(max-width: 640px) 100vw, 360px"
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  priority={index === 0}
                 />
                 
-                {/* Image Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-white/90 dark:from-[#0c1322]/90 via-transparent to-transparent opacity-65 dark:opacity-85" />
-                
-                {/* Location Tag */}
-                <span className="absolute bottom-4 left-4 rounded-md bg-primary/20 border border-primary/30 px-3 py-1 text-[11px] font-bold text-primary backdrop-blur-md uppercase tracking-wider">
-                  {partner.location.split("/")[0]}
-                </span>
+                {/* Gradient Shadows to blend image top and bottom */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background/95 dark:from-[#070b16]/95 via-transparent to-transparent pointer-events-none" />
               </div>
 
-              {/* Partner Details */}
-              <div className="space-y-2">
-                <h3 className="text-xl font-bold tracking-tight text-foreground dark:text-white group-hover:text-primary transition-colors duration-300">
-                  {partner.name}
-                </h3>
-                
-                <p className="text-sm font-semibold text-muted-foreground dark:text-gray-400">
-                  {partner.role}
-                </p>
+              {/* Floating Details Glass Card */}
+              <div className="absolute bottom-6 left-6 right-6 z-20">
+                <div className="bg-white/80 dark:bg-[#0c1322]/85 backdrop-blur-xl border border-black/5 dark:border-white/[0.08] rounded-2xl p-5 shadow-2xl transition-all duration-300 group-hover:border-primary/30 group-hover:shadow-[0_15px_30px_rgba(9,75,240,0.15)]">
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="space-y-1">
+                      <h3 className="text-xl font-bold tracking-tight text-foreground dark:text-white group-hover:text-primary transition-colors duration-300">
+                        {partner.name}
+                      </h3>
+                      
+                      <p className="text-[11px] font-extrabold uppercase tracking-wider text-primary">
+                        {partner.role}
+                      </p>
+                    </div>
 
-                <p className="text-xs text-gray-500 font-medium">
-                  {partner.location}
-                </p>
-
-                {/* Divider */}
-                <div className="pt-4 border-t border-border dark:border-white/[0.06] mt-4 flex items-center gap-3">
-                  <a
-                    href={partner.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex size-8 items-center justify-center rounded-full bg-muted dark:bg-white/[0.04] text-muted-foreground dark:text-gray-400 transition hover:bg-primary hover:text-white"
-                  >
-                    <FaLinkedinIn size={14} />
-                  </a>
-                  <a
-                    href={partner.twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex size-8 items-center justify-center rounded-full bg-muted dark:bg-white/[0.04] text-muted-foreground dark:text-gray-400 transition hover:bg-[#1da1f2] hover:text-white"
-                  >
-                    <FaTwitter size={14} />
-                  </a>
+                    {partner.linkedin && (
+                      <a
+                        href={partner.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex size-10 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary border border-primary/20 transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-[0_0_15px_rgba(9,75,240,0.4)]"
+                      >
+                        <FaLinkedinIn size={15} />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </motion.div>
