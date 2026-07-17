@@ -29,7 +29,6 @@ const partners: Partner[] = [
 export default function InternationalPartners() {
   return (
     <section className="relative overflow-hidden bg-background text-foreground dark:bg-[#070b16] dark:text-white py-24 transition-colors duration-300">
-      {/* 1. Subtle grid lines and large background glow */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(9,75,240,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(9,75,240,0.015)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
       <div className="absolute left-1/4 top-1/3 -z-10 h-[500px] w-[500px] rounded-full bg-primary/5 dark:bg-primary/10 blur-3xl pointer-events-none" />
 
@@ -44,7 +43,7 @@ export default function InternationalPartners() {
           >
             Global Leadership
           </motion.span>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +61,7 @@ export default function InternationalPartners() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-muted-foreground dark:text-gray-400 text-base sm:text-lg leading-relaxed"
           >
-            Connecting expertise across continents. Our leadership team coordinates operations 
+            Connecting expertise across continents. Our leadership team coordinates operations
             globally to deliver premium software and digital products.
           </motion.p>
         </div>
@@ -92,7 +91,7 @@ export default function InternationalPartners() {
                   className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                   priority={index === 0}
                 />
-                
+
                 {/* Gradient Shadows to blend image top and bottom */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 pointer-events-none" />
                 <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background/95 dark:from-[#070b16]/95 via-transparent to-transparent pointer-events-none" />
@@ -106,7 +105,7 @@ export default function InternationalPartners() {
                       <h3 className="text-xl font-bold tracking-tight text-foreground dark:text-white group-hover:text-primary transition-colors duration-300">
                         {partner.name}
                       </h3>
-                      
+
                       <p className="text-[11px] font-extrabold uppercase tracking-wider text-primary">
                         {partner.role}
                       </p>
