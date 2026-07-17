@@ -91,7 +91,7 @@
   --radius: 0.625rem;
 
   /* Background Colors */
-  --background: #FFFFFF;
+  --background: #f5f7fb;
   /* --foreground: #2D3E50; */
   --foreground: #000000;
   /* Body text */
@@ -134,18 +134,17 @@
 
 .dark {
   /* Background Colors */
-  --background: #0B1A2E;
-  /* Dark Navy */
+  --background: #030712;
+  /* Text on dark bg */
   --foreground: #FFFFFF;
   /* Text on dark bg */
-
-  --card: #112236;
+  --card: #0c1322;
   /* Cards on dark bg */
   --card-foreground: #FFFFFF;
 /* menu in dark  */
   --menu: #ffffff;
 
-  --popover: #112236;
+  --popover: #0c1322;
   --popover-foreground: #FFFFFF;
 
   /* Primary - DivineeSoft Blue */
@@ -158,7 +157,7 @@
   --secondary: #094BF0;
   --secondary-foreground: #FFFFFF;
 
-  --muted: #1E3A5F;
+  --muted: #090f1d;
   /* Borders / muted on dark bg */
   --muted-foreground: #A0B4C8;
 
@@ -170,9 +169,9 @@
 
   --destructive: oklch(0.704 0.191 22.216);
 
-  --border: #1E3A5F;
+  --border: #162235;
   /* Dark Border */
-  --input: #1E3A5F;
+  --input: #162235;
   --ring: #094BF0;
   /* Accent Border on focus */
 
@@ -211,6 +210,15 @@
 
   body {
     @apply bg-background text-foreground;
+    background-image: radial-gradient(at 0% 0%, rgba(9, 75, 240, 0.05) 0px, transparent 50%),
+                      radial-gradient(at 100% 0%, rgba(9, 75, 240, 0.03) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background-image: radial-gradient(at 0% 0%, rgba(9, 75, 240, 0.12) 0px, transparent 60%),
+                      radial-gradient(at 100% 100%, rgba(9, 75, 240, 0.08) 0px, transparent 60%);
+    background-attachment: fixed;
   }
 
   ::-webkit-scrollbar {

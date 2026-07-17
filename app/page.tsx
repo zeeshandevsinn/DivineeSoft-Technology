@@ -9,6 +9,7 @@ import { Metadata } from "next";
 import ServicesTicker from "@/components/home/ServicesTicker";
 import PartnershipSection from "@/components/home/PartnershipSection";
 import BlogPreview from "@/components/home/BlogPreview";
+import InternationalPartners from "@/components/home/InternationalPartners";
 
 export const metadata: Metadata = {
   title: "DivineeSoft Technology | Transform Ideas Into Digital Success",
@@ -26,10 +27,11 @@ export default function Home() {
       <About />
       <Services />
       <Stats />
+      <InternationalPartners />
       <PartnershipSection />
-      <FAQ />
       <Testimonials />
       <BlogPreview />
+      <FAQ />
       <CalInline />
     </div>
   );

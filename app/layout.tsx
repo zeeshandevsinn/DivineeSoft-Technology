@@ -49,6 +49,7 @@ export const metadata: Metadata = {
 };
 
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import Preloader from "@/components/ui/Preloader";
 
 export default function RootLayout({
   children,
@@ -62,6 +63,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Preloader />
           <ScrollToTop />
           <Header />
 

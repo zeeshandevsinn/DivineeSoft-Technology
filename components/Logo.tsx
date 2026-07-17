@@ -39,10 +39,10 @@ export default function Logo({
   }
 
   const logoSrc = shouldUseWhite
-    ? "/whiteLogo.png"
+    ? "/logoWhite.png"
     : resolvedTheme === "light"
-      ? "/newlogo.png"
-      : "/whiteLogo.png";
+      ? "/logo.png"
+      : "/logoWhite.png";
 
   return (
     <Link
