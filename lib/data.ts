@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { FaFacebook, FaInstagram, FaLinkedin, FaPinterest } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { Cloud, RefreshCw, Layers, CreditCard } from 'lucide-react';
 
 // Using the default placeholder image downloaded to public/placeholder.jpg
 const PLACEHOLDER_IMG = "/placeholder.jpg";
@@ -261,6 +262,101 @@ export const services = [
       keywords: "SEO services, search engine optimization, online visibility, DivineeSoft Technology, website ranking, digital marketing, business growth"
     }
   },
+
+  {
+  id: 'cloud-solutions',
+  title: 'Cloud Solutions & DevOps',
+  icon: Cloud,
+  desc: 'Scalable cloud infrastructure, migration, and DevOps automation for modern businesses.',
+  image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=2000',
+  details: 'We design, deploy, and manage cloud infrastructure that scales with your business. From cloud migration and server architecture to CI/CD pipelines and 24/7 monitoring, we ensure your systems stay fast, secure, and always online.',
+  process: [
+    { title: 'Infrastructure Audit', desc: 'Assessing your current setup and identifying scalability, cost, and performance gaps.' },
+    { title: 'Architecture Design', desc: 'Designing a secure, scalable cloud architecture tailored to your workload.' },
+    { title: 'Migration & Deployment', desc: 'Moving systems to the cloud with zero-downtime deployment strategies.' },
+    { title: 'Monitoring & Optimization', desc: 'Continuous uptime monitoring, cost optimization, and performance tuning.' },
+  ],
+  techStack: ['AWS', 'Google Cloud', 'Azure', 'Docker', 'Kubernetes', 'Terraform'],
+  keyFeatures: [
+    {
+      title: "Scalable Architecture",
+      desc: "Infrastructure that grows automatically with your traffic and workload demands.",
+      icon: Server
+    },
+    {
+      title: "CI/CD Automation",
+      desc: "Automated build, test, and deployment pipelines for faster, reliable releases.",
+      icon: RefreshCw
+    },
+    {
+      title: "24/7 Uptime Monitoring",
+      desc: "Real-time alerts and monitoring to catch issues before they impact users.",
+      icon: Shield
+    },
+    {
+      title: "Cost Optimization",
+      desc: "Right-sizing resources and eliminating waste to reduce your cloud spend.",
+      icon: LineChart
+    }
+  ],
+  faqs: [
+    { question: "Which cloud providers do you work with?", answer: "We work with AWS, Google Cloud, and Azure, and recommend the best fit based on your budget, scale, and technical requirements." },
+    { question: "Can you migrate our existing systems without downtime?", answer: "Yes, we use phased migration strategies and blue-green deployments to ensure minimal to zero downtime during transitions." },
+    { question: "Do you offer ongoing infrastructure management?", answer: "Yes, we provide 24/7 monitoring, incident response, and monthly optimization reviews as part of our managed cloud packages." }
+  ],
+  seo: {
+    title: "Cloud Solutions & DevOps | DivineeSoft Technology Scales Your Infrastructure",
+    description: "Scale confidently with DivineeSoft Technology's cloud solutions—infrastructure, migration, and DevOps automation built for uptime, security, and growth.",
+    keywords: "cloud solutions, DevOps services, cloud migration, AWS development, cloud infrastructure, DivineeSoft Technology, CI/CD automation"
+  }
+},
+{
+  id: 'saas-development',
+  title: 'SaaS Product Development',
+  icon: Layers,
+  desc: 'End-to-end SaaS product design, development, and launch for startups and enterprises.',
+  image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2000',
+  details: 'We build multi-tenant SaaS platforms from the ground up — covering architecture, subscription billing, user management, and scalable infrastructure. Whether you\'re launching an MVP or scaling an existing product, we become your long-term SaaS engineering partner.',
+  process: [
+    { title: 'Product Strategy', desc: 'Defining core features, pricing tiers, and go-to-market roadmap.' },
+    { title: 'Multi-Tenant Architecture', desc: 'Building secure, isolated data architecture for multiple customers.' },
+    { title: 'Development & Billing Integration', desc: 'Building the platform with subscription billing and user roles.' },
+    { title: 'Launch & Scale', desc: 'Deploying to production and scaling infrastructure as your user base grows.' },
+  ],
+  techStack: ['Next.js', 'Node.js', 'PostgreSQL', 'Stripe', 'AWS', 'Redis'],
+  keyFeatures: [
+    {
+      title: "Multi-Tenant Architecture",
+      desc: "Secure, isolated data structures that scale across unlimited customer accounts.",
+      icon: Layers
+    },
+    {
+      title: "Subscription & Billing",
+      desc: "Integrated payment systems supporting tiered plans, trials, and usage-based billing.",
+      icon: CreditCard
+    },
+    {
+      title: "Role-Based Access",
+      desc: "Granular permission systems for teams, admins, and end users.",
+      icon: Shield
+    },
+    {
+      title: "Built to Scale",
+      desc: "Infrastructure designed to handle growth from first customer to thousands.",
+      icon: Server
+    }
+  ],
+  faqs: [
+    { question: "Can you build our SaaS MVP quickly?", answer: "Yes, we specialize in lean MVP development, typically launching a functional first version within 6-10 weeks depending on scope." },
+    { question: "Do you handle subscription billing?", answer: "Yes, we integrate billing platforms like Stripe to handle subscriptions, trials, upgrades, and usage-based pricing." },
+    { question: "Can you scale our existing SaaS product?", answer: "Absolutely. We regularly take over existing SaaS codebases to improve architecture, performance, and add new features." }
+  ],
+  seo: {
+    title: "SaaS Development Services | DivineeSoft Technology Builds Your Platform",
+    description: "Launch and scale your SaaS product with DivineeSoft Technology—multi-tenant architecture, billing integration, and engineering built for growth.",
+    keywords: "SaaS development, SaaS product design, multi-tenant architecture, subscription billing, SaaS MVP, DivineeSoft Technology"
+  }
+}
 ];
 
 
@@ -342,7 +438,7 @@ export const processOverview = [
   {
     step: "03",
     title: "Implementation",
-    desc: "With a solid plan and design in place, we bring your vision to life. Our development team transforms blueprints into high-performing digital solutions — from responsive websites and custom applications to full-scale marketing campaigns.",
+    desc: "With a solid plan and design in place, we bring your vision to life. Our development team transforms blueprints into high-performing digital solutions from responsive websites and custom applications to full-scale marketing campaigns.",
     outcome: "A fully functional, future-ready solution that delivers exceptional user experience and measurable business results.",
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800&h=600" // Coding/Team
   },

@@ -7,18 +7,18 @@ const principles = [
   {
     title: "Innovation",
     icon: Search,
-    desc: "We test fast and learn faster, RAG, agents, on-chain automations, always tied to a business metric."
+    desc: "We test fast and learn faster, RAG, agents, on-chain automations, always tied to a business metric.",
   },
   {
     title: "Integrity",
     icon: Star,
-    desc: "Security, privacy, and compliance by default. Audits, monitoring, and data governance from day one."
+    desc: "Security, privacy, and compliance by default. Audits, monitoring, and data governance from day one.",
   },
   {
     title: "Collaboration",
     icon: Users,
-    desc: "One integrated team with clear comms, shared dashboards, and transparent delivery."
-  }
+    desc: "One integrated team with clear comms, shared dashboards, and transparent delivery.",
+  },
 ];
 
 export default function Principles() {
@@ -26,7 +26,7 @@ export default function Principles() {
     <section className="relative">
       {/* Split Background */}
       <div className="absolute inset-x-0 top-0 h-1/2 bg-primary/5 dark:bg-primary/5 transition-colors duration-300 pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-slate-950 pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-transparent pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10 py-12">
         <motion.div
@@ -37,12 +37,16 @@ export default function Principles() {
           className="bg-background rounded-3xl p-8 md:p-16 shadow-2xl border border-border/50 text-foreground"
         >
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-sm font-handwriting text-muted-foreground mb-2 block font-medium tracking-wider uppercase">Our Values</span>
+            <span className="text-sm font-handwriting text-muted-foreground mb-2 block font-medium tracking-wider uppercase">
+              Our Values
+            </span>
             <h2 className="text-3xl md:text-5xl font-bold mb-6 text-foreground">
               Principles That Drive Every Action
             </h2>
             <p className="text-muted-foreground leading-relaxed text-lg">
-              Our core values aren&apos;t just words on a page; they are the principles that anchor our decisions, shape our strategies, and define how we interact with our clients and each other.
+              Our core values aren&apos;t just words on a page; they are the
+              principles that anchor our decisions, shape our strategies, and
+              define how we interact with our clients and each other.
             </p>
           </div>
 
