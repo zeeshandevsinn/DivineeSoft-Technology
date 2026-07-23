@@ -95,8 +95,8 @@ export default function Journey() {
                   DivineeSoft Technology
                 </span>{" "}
                 was built to close the gap between product, engineering, and
-                growth. We focus on outcomes that matter — activation,
-                retention, CAC/LTV, and uptime — not vanity launches.
+                growth. We focus on outcomes that matter activation, retention,
+                CAC/LTV, and uptime not vanity launches.
               </div>
               <div>
                 Today, our operators include ML engineers, smart-contract

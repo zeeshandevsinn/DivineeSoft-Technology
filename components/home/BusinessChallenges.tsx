@@ -42,7 +42,7 @@ const challenges: Challenge[] = [
     icon: Clock,
     title: "Slow Time-to-Market",
     description:
-      "By the time an idea ships, the window — or a faster competitor — has already moved past it.",
+      "By the time an idea ships, the window or a faster competitor has already moved past it.",
   },
   {
     icon: ShieldAlert,
@@ -113,7 +113,7 @@ export default function BusinessChallenges() {
             className="text-lg text-muted-foreground"
           >
             After partnering with founders and enterprises across 15+
-            industries, we keep seeing the same roadblocks stall growth — right
+            industries, we keep seeing the same roadblocks stall growth right
             before the moment a technology partner should have stepped in.
           </motion.p>
         </div>

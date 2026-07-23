@@ -9,6 +9,82 @@ import { useEffect } from "react";
 
 import Image from "next/image";
 
+const ROLES = [
+  "--stack production-ready",
+  "--Modern tech stack",
+  "--High-performance stack",
+];
+
+const HEADLINE_LINES = [
+  { text: "Every great business", accent: false },
+  { text: "starts with one problem.", accent: false },
+  { text: "We solve it.", accent: true },
+];
+
+const TERMINAL_STEPS = ["mapped business goals", "scoped MVP in 2 weeks"];
+
+const TECH_BADGES = ["React", "Node", "AWS", "Flutter", "AI"];
+
+const STATS = [
+  { value: "50+", label: "projects shipped" },
+  { value: "8+", label: "years building" },
+  { value: "15+", label: "industries served" },
+];
+
+// ---------------- Typing effect component ----------------
+
+function TypingText({ words }: { words: string[] }) {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [showCursor, setShowCursor] = useState(true);
+
+  // Blink the cursor every half second
+  useEffect(() => {
+    const blinkTimer = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+    return () => clearInterval(blinkTimer);
+  }, []);
+
+  // Handle typing and deleting letters
+  useEffect(() => {
+    const currentWord = words[wordIndex];
+
+    // Word fully typed -> wait, then start deleting
+    if (!isDeleting && text === currentWord) {
+      const timeout = setTimeout(() => setIsDeleting(true), 1500);
+      return () => clearTimeout(timeout);
+    }
+
+    // Word fully deleted -> move to next word
+    if (isDeleting && text === "") {
+      setIsDeleting(false);
+      setWordIndex((prev) => (prev + 1) % words.length);
+      return;
+    }
+
+    // Otherwise keep typing or deleting one letter at a time
+    const speed = isDeleting ? 30 : 50;
+    const timeout = setTimeout(() => {
+      const nextLength = isDeleting ? text.length - 1 : text.length + 1;
+      setText(currentWord.slice(0, nextLength));
+    }, speed);
+
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, wordIndex, words]);
+
+  return (
+    <span className="inline-flex items-center font-semibold text-primary">
+      {text}
+      <span
+        className="ml-0.5 inline-block h-[1em] w-0.5 bg-primary"
+        style={{ opacity: showCursor ? 1 : 0 }}
+      />
+    </span>
+  );
+}
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">

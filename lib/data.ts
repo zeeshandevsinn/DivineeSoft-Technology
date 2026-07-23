@@ -316,7 +316,7 @@ export const services = [
   icon: Layers,
   desc: 'End-to-end SaaS product design, development, and launch for startups and enterprises.',
   image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2000',
-  details: 'We build multi-tenant SaaS platforms from the ground up — covering architecture, subscription billing, user management, and scalable infrastructure. Whether you\'re launching an MVP or scaling an existing product, we become your long-term SaaS engineering partner.',
+  details: 'We build multi-tenant SaaS platforms from the ground up covering architecture, subscription billing, user management, and scalable infrastructure. Whether you\'re launching an MVP or scaling an existing product, we become your long-term SaaS engineering partner.',
   process: [
     { title: 'Product Strategy', desc: 'Defining core features, pricing tiers, and go-to-market roadmap.' },
     { title: 'Multi-Tenant Architecture', desc: 'Building secure, isolated data architecture for multiple customers.' },
