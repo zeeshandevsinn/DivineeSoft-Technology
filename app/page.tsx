@@ -1,4 +1,4 @@
-import HeroSection2 from "@/components/home/HeroSection2";
+import HeroSection2 from "@/components/home/Hero";
 import About from "@/components/home/About";
 import Services from "@/components/home/Services";
 import Stats from "@/components/home/Stats";
@@ -10,7 +10,7 @@ import ServicesTicker from "@/components/home/ServicesTicker";
 import PartnershipSection from "@/components/home/PartnershipSection";
 import BlogPreview from "@/components/home/BlogPreview";
 import InternationalPartners from "@/components/home/InternationalPartners";
-import WeSolveIt from "@/components/home/WeSolveIt";
+// import WeSolveIt from "@/components/home/WeSolveIt";
 import BusinessChallenges from "@/components/home/BusinessChallenges";
 
 export const metadata: Metadata = {

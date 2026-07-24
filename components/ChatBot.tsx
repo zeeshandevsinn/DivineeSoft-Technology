@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { Check, Copy, RotateCcw, Send, Sparkles, X } from "lucide-react";
+import { Check, Copy, RotateCcw, Send, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Message {
@@ -29,7 +29,14 @@ const uid = () =>
   `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
 
 function mockReply(question: string): string {
-  return `Thanks for asking: "${question}"\n\nThis is a **demo reply**. Once the backend is connected, I'll answer from real DivineeSoft portfolio data including services, case studies, tech stack, and availability.`;
+  return `Thank you for reaching out to DivineSoft.
+
+You asked:
+"${question}"
+
+Our AI Assistant is currently in demonstration mode. In its full release, it will help you explore our services, case studies, technology capabilities, and project availability.
+
+Whether you're building a new product or scaling an existing one, DivineSoft is here to help transform ideas into reliable digital solutions.`;
 }
 
 function Waveform() {
@@ -258,7 +265,7 @@ export default function ChatBot() {
 
   return (
     <>
-      <div className="fixed right-4 bottom-6 z-[9999] flex items-center gap-2 sm:right-6 md:right-8">
+      <div className="fixed right-4 bottom-6 z-9999 flex items-center gap-2 sm:right-6 md:right-8">
         <AnimatePresence>
           {showIntro && !open && (
             <motion.span
@@ -282,7 +289,7 @@ export default function ChatBot() {
             "relative flex size-14 items-center justify-center overflow-hidden rounded-full shadow-[0_14px_34px_rgba(9,75,240,0.28)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background md:size-16",
             open
               ? "border border-border bg-card text-foreground"
-              : "bg-gradient-to-br from-primary to-blue-700 text-primary-foreground ",
+              : "bg-linear-to-br from-primary to-blue-700 text-primary-foreground ",
           )}
           whileHover={{ scale: 1.06, y: -2 }}
           whileTap={{ scale: 0.95 }}
@@ -347,12 +354,12 @@ export default function ChatBot() {
             exit={{ opacity: 0, y: 18, scale: 0.96 }}
             transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
             aria-label="DivineeSoft AI chat"
-            className="fixed right-4 bottom-24 z-[9998] flex h-[min(620px,calc(100vh-128px))] w-[min(392px,calc(100vw-32px))] origin-bottom-right flex-col overflow-hidden rounded-3xl border border-border bg-card/95 text-card-foreground shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur-2xl dark:bg-[#0c1322]/95 md:right-6"
+            className="fixed right-4 bottom-24 z-9998 flex h-[min(620px,calc(100vh-128px))] w-[min(392px,calc(100vw-32px))] origin-bottom-right flex-col overflow-hidden rounded-3xl border border-border bg-card/95 text-card-foreground shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur-2xl dark:bg-[#0c1322]/95 md:right-6"
           >
-            <div className="flex items-center justify-between border-b border-border bg-gradient-to-b from-primary/10 to-transparent px-5 py-4">
+            <div className="flex items-center justify-between border-b border-border bg-linear-to-b from-primary/10 to-transparent px-5 py-4">
               <div className="flex min-w-0 items-center gap-3">
                 <div className="relative shrink-0">
-                  <div className="relative flex size-10 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-primary to-blue-700 shadow-[0_12px_28px_rgba(9,75,240,0.22)]">
+                  <div className="relative flex size-10 items-center justify-center overflow-hidden rounded-full bg-linear-to-br from-primary to-blue-700 shadow-[0_12px_28px_rgba(9,75,240,0.22)]">
                     <Image
                       src="/iconWhite.png"
                       alt="DivineeSoft"
@@ -425,8 +432,8 @@ export default function ChatBot() {
                       className={cn(
                         "px-4 py-3 text-[13px] leading-relaxed shadow-sm",
                         message.role === "user"
-                          ? "rounded-2xl rounded-br-md bg-gradient-to-br from-primary to-blue-700 font-medium text-primary-foreground"
-                          : "rounded-2xl rounded-bl-md border border-border bg-background/70 text-foreground dark:bg-white/[0.04]",
+                          ? "rounded-2xl rounded-br-md bg-linear-to-br from-primary to-blue-700 font-medium text-primary-foreground"
+                          : "rounded-2xl rounded-bl-md border border-border bg-background/70 text-foreground dark:bg-white/4",
                       )}
                     >
                       {message.streaming && message.content === "" ? (
