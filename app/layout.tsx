@@ -13,18 +13,20 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "DivineeSoft Technology - Your Digital Growth Partner",
-  description: "DivineeSoft Technology helps businesses grow online through innovative digital marketing strategies, cutting-edge web development, SEO optimization, and creative branding solutions. Partner with us to boost your online presence and drive measurable results.",
+  description:
+    "DivineeSoft Technology helps businesses grow online through innovative digital marketing strategies, cutting-edge web development, SEO optimization, and creative branding solutions. Partner with us to boost your online presence and drive measurable results.",
   keywords: [
     "digital agency",
     "SEO services",
     "web development",
     "digital marketing",
     "branding",
-    "online growth"
+    "online growth",
   ],
   openGraph: {
     title: "DivineeSoft Technology - Your Digital Growth Partner",
-    description: "DivineeSoft Technology helps businesses grow online through innovative digital marketing strategies, web development, SEO, and branding solutions. Boost your online presence today.",
+    description:
+      "DivineeSoft Technology helps businesses grow online through innovative digital marketing strategies, web development, SEO, and branding solutions. Boost your online presence today.",
     url: "https://www.divineesofttechnology.com",
     siteName: "DivineeSoft Technology",
     images: [
@@ -41,7 +43,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "DivineeSoft Technology - Your Digital Growth Partner",
-    description: "Grow your business online with DivineeSoft Technology's digital marketing, web development, SEO, and branding solutions.",
+    description:
+      "Grow your business online with DivineeSoft Technology's digital marketing, web development, SEO, and branding solutions.",
     images: ["https://www.divineesofttechnology.com/og-image.jpg"],
     site: "@divineesofttech",
     creator: "@divineesofttech",
@@ -50,13 +53,16 @@ export const metadata: Metadata = {
 
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import Preloader from "@/components/ui/Preloader";
+import ChatBot from "@/components/ChatBot";
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} font-sans antialiased flex flex-col min-h-screen w-screen overflow-x-hidden`}>
+      <body
+        className={`${montserrat.variable} font-sans antialiased flex flex-col min-h-screen w-screen overflow-x-hidden`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -71,11 +77,10 @@ export default function RootLayout({
           <HeaderSpacer />
 
           {/* Main Content */}
-          <main className="flex-grow">
-            {children}
-          </main>
+          <main className="flex-grow">{children}</main>
 
           <Footer />
+          <ChatBot />
         </ThemeProvider>
       </body>
     </html>

@@ -1,31 +1,50 @@
 "use client";
 
 import { stats } from "@/lib/data";
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useSpring,
+  animate,
+} from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, { damping: 50, stiffness: 100 });
+  // const springValue = useSpring(motionValue, { damping: 50, stiffness: 100 });
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   useEffect(() => {
     if (isInView) {
-      motionValue.set(value);
+      const controls = animate(motionValue, value, {
+        duration: 1.5,
+        ease: "easeOut",
+      });
+
+      return () => controls.stop();
     }
   }, [isInView, value, motionValue]);
 
   useEffect(() => {
-    springValue.on("change", (latest) => {
+    const unsubscribe = motionValue.on("change", (latest) => {
       if (ref.current) {
         ref.current.textContent = Math.floor(latest).toString() + suffix;
       }
     });
-  }, [springValue, suffix]);
 
-  return <span ref={ref} className="text-4xl md:text-5xl font-bold text-white block mb-2" />;
+    return () => unsubscribe();
+  }, [motionValue, suffix]);
+
+  return (
+    <span
+      ref={ref}
+      className="text-4xl md:text-5xl font-bold text-white block mb-2"
+    >
+      0{suffix}
+    </span>
+  );
 }
 
 export default function Stats() {
