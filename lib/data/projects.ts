@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: "barberz-link",
-    categories: ["App Development"],
+    categories: ["App Development", "SaaS Product Development"],
     type: "case-study",
     status: "completed",
     meta: {
@@ -33,7 +33,7 @@ export const projects = [
   },
   {
     id: "cosmo-link",
-    categories: ["App Development"],
+    categories: ["App Development", "SaaS Product Development"],
     type: "case-study",
     status: "completed",
     meta: {
@@ -65,7 +65,7 @@ export const projects = [
   },
    {
     id: "beauty-spot-app",
-    categories: ["App Development"],
+    categories: ["App Development", "Cloud Solutions & DevOps"],
     type: "case-study",
     status: "completed",
     meta: {
@@ -197,7 +197,7 @@ export const projects = [
   },
   {
     id: "sariea",
-    categories: ["App Development"],
+    categories: ["App Development", "SaaS Product Development"],
     type: "case-study",
     status: "completed",
 
@@ -236,7 +236,7 @@ export const projects = [
   },
   {
     id: "barberz-link-web",
-    categories: ["Web Development"],
+    categories: ["Web Development" , "Cloud Solutions & DevOps"],
     type: "case-study",
     status: "completed",
     meta: {
@@ -267,7 +267,7 @@ export const projects = [
   },
   {
     id: "cosmo-link-web",
-    categories: ["Web Development"],
+    categories: ["Web Development", "Cloud Solutions & DevOps"],
     type: "case-study",
     status: "completed",
     meta: {

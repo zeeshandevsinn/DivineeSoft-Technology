@@ -10,6 +10,8 @@ import ServicesTicker from "@/components/home/ServicesTicker";
 import PartnershipSection from "@/components/home/PartnershipSection";
 import BlogPreview from "@/components/home/BlogPreview";
 import InternationalPartners from "@/components/home/InternationalPartners";
+import WeSolveIt from "@/components/home/WeSolveIt";
+import BusinessChallenges from "@/components/home/BusinessChallenges";
 
 export const metadata: Metadata = {
   title: "DivineeSoft Technology | Transform Ideas Into Digital Success",
@@ -27,7 +29,9 @@ export default function Home() {
       <About />
       <Services />
       <Stats />
+      {/* <WeSolveIt /> */}
       <InternationalPartners />
+      <BusinessChallenges />
       <PartnershipSection />
       <Testimonials />
       <BlogPreview />

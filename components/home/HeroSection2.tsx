@@ -4,8 +4,84 @@ import Link from "next/link";
 import { getCalApi } from "@calcom/embed-react";
 import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function HeroSection2() {
+  const ROLES = [
+    "--stack production-ready",
+    "--Modern tech stack",
+    "--High-performance stack",
+  ];
+
+  const HEADLINE_LINES = [
+    { text: "Every great business", accent: false },
+    { text: "starts with one problem.", accent: false },
+    { text: "We solve it.", accent: true },
+  ];
+
+  const TERMINAL_STEPS = ["mapped business goals", "scoped MVP in 2 weeks"];
+
+  const TECH_BADGES = ["React", "Node", "AWS", "Flutter", "AI"];
+
+  const STATS = [
+    { value: "50+", label: "projects shipped" },
+    { value: "8+", label: "years building" },
+    { value: "15+", label: "industries served" },
+  ];
+
+  // ---------------- Typing effect component ----------------
+
+  function TypingText({ words }: { words: string[] }) {
+    const [wordIndex, setWordIndex] = useState(0);
+    const [text, setText] = useState("");
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [showCursor, setShowCursor] = useState(true);
+
+    // Blink the cursor every half second
+    useEffect(() => {
+      const blinkTimer = setInterval(() => {
+        setShowCursor((prev) => !prev);
+      }, 500);
+      return () => clearInterval(blinkTimer);
+    }, []);
+
+    // Handle typing and deleting letters
+    useEffect(() => {
+      const currentWord = words[wordIndex];
+
+      // Word fully typed -> wait, then start deleting
+      if (!isDeleting && text === currentWord) {
+        const timeout = setTimeout(() => setIsDeleting(true), 1500);
+        return () => clearTimeout(timeout);
+      }
+
+      // Word fully deleted -> move to next word
+      if (isDeleting && text === "") {
+        setIsDeleting(false);
+        setWordIndex((prev) => (prev + 1) % words.length);
+        return;
+      }
+
+      // Otherwise keep typing or deleting one letter at a time
+      const speed = isDeleting ? 30 : 50;
+      const timeout = setTimeout(() => {
+        const nextLength = isDeleting ? text.length - 1 : text.length + 1;
+        setText(currentWord.slice(0, nextLength));
+      }, speed);
+
+      return () => clearTimeout(timeout);
+    }, [text, isDeleting, wordIndex, words]);
+
+    return (
+      <span className="inline-flex items-center font-semibold text-primary">
+        {text}
+        <span
+          className="ml-0.5 inline-block h-[1em] w-0.5 bg-primary"
+          style={{ opacity: showCursor ? 1 : 0 }}
+        />
+      </span>
+    );
+  }
   const openCalendar = async () => {
     const cal = await getCalApi({});
     cal("modal", {
@@ -30,9 +106,14 @@ export default function HeroSection2() {
   return (
     <section className="relative min-h-[90vh] overflow-hidden bg-[#f5f7fb] text-[#0b0e14] dark:bg-[#030712] dark:text-white py-24 flex items-center justify-center transition-colors duration-300">
       {/* 1. Fine High-Tech Blue Grid Overlay */}
-      <div 
-        className="absolute inset-0 bg-[linear-gradient(to_right,rgba(9,75,240,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(9,75,240,0.04)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(9,75,240,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(9,75,240,0.06)_1px,transparent_1px)] bg-[size:4.5rem_4.5rem] pointer-events-none" 
-        style={{ maskImage: "radial-gradient(ellipse at center, black, transparent 85%)", WebkitMaskImage: "radial-gradient(ellipse at center, black, transparent 85%)" }}
+      <div
+        className="absolute inset-0 bg-[linear-gradient(to_right,rgba(9,75,240,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(9,75,240,0.04)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(9,75,240,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(9,75,240,0.06)_1px,transparent_1px)] bg-[size:4.5rem_4.5rem] pointer-events-none"
+        style={{
+          maskImage:
+            "radial-gradient(ellipse at center, black, transparent 85%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at center, black, transparent 85%)",
+        }}
       />
 
       {/* 2. Soft Glowing Radial Gradients (Ambient Lights) */}
@@ -41,7 +122,6 @@ export default function HeroSection2() {
 
       <div className="container relative mx-auto px-6 z-10">
         <div className="grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
-          
           {/* Left Column: Typography & Actions */}
           <motion.div
             initial="hidden"
@@ -65,23 +145,21 @@ export default function HeroSection2() {
               custom={1}
               className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-extrabold leading-[1.1] tracking-tight text-[#0b0e14] dark:text-white mb-6"
             >
-              Every Great <br />
-              Business <br />
-              Starts With <br />
-              One Problem. <br />
+              Every Great Business <br /> Starts With One Problem. <br />
               <span className="text-primary bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-primary font-black">
                 We Solve It.
               </span>
             </motion.h1>
 
             {/* Dual Subtitles / Quotes */}
-            <motion.div 
-              variants={fadeUp} 
-              custom={2} 
+            <motion.div
+              variants={fadeUp}
+              custom={2}
               className="space-y-1 border-l-2 border-primary/30 pl-4 mb-6"
             >
               <p className="text-sm font-semibold italic text-blue-600/80 dark:text-blue-300/80">
-                &ldquo;We don&apos;t just build software. We build businesses.&rdquo;
+                &ldquo;We don&apos;t just build software. We build
+                businesses.&rdquo;
               </p>
               <p className="text-sm font-semibold italic text-blue-600/80 dark:text-blue-300/80">
                 &ldquo;Turning Real Problems Into Digital Reality.&rdquo;
@@ -94,9 +172,9 @@ export default function HeroSection2() {
               custom={3}
               className="text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-[580px] mb-10"
             >
-              We partner with founders, businesses, and enterprises to transform 
-              real-world challenges into scalable digital products &mdash; becoming 
-              your long-term technology partner, not just a vendor.
+              We partner with founders, businesses, and enterprises to transform
+              real-world challenges into scalable digital products becoming your
+              long-term technology partner, not just a vendor.
             </motion.p>
 
             {/* Action Buttons */}
@@ -116,7 +194,7 @@ export default function HeroSection2() {
 
               <Link
                 href="/case-studies"
-                className="inline-flex h-[56px] items-center justify-center rounded-full border border-[#0b0e14]/15 bg-transparent text-[#0b0e14] hover:bg-[#0b0e14]/5 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:border-white/25 dark:hover:bg-white/10 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="inline-flex h-14 items-center justify-center rounded-full border border-[#0b0e14]/15 bg-transparent text-[#0b0e14] hover:bg-[#0b0e14]/5 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:border-white/25 dark:hover:bg-white/10 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white px-8"
               >
                 See Our Work
               </Link>
@@ -124,45 +202,52 @@ export default function HeroSection2() {
           </motion.div>
 
           {/* Right Column: Floating Collage of UI Cards */}
-          <div className="relative h-[480px] sm:h-[550px] w-full max-w-[550px] mx-auto lg:mx-0 lg:ml-auto flex items-center justify-center">
-            
-            {/* Card 1: SATISFACTION (Top Right) */}
+          {/* <div className="relative w-full max-w-[550px] mx-auto lg:mx-0 lg:ml-auto flex flex-col items-center gap-5 sm:gap-7">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ 
-                opacity: 1, 
+              animate={{
+                opacity: 1,
                 scale: 1,
-                y: [0, -10, 0] 
+                y: [0, -8, 0],
               }}
               transition={{
                 scale: { duration: 0.6, delay: 0.3 },
                 opacity: { duration: 0.6, delay: 0.3 },
-                y: { repeat: Infinity, duration: 5, ease: "easeInOut" }
+                y: { repeat: Infinity, duration: 5, ease: "easeInOut" },
               }}
-              className="absolute right-0 top-[8%] z-20 w-[170px] sm:w-[190px] rounded-2xl border border-[#0b0e14]/5 bg-white p-5 shadow-[0_20px_40px_rgba(0,0,0,0.06)] dark:border-white/[0.08] dark:bg-[#0c1322]/85 dark:backdrop-blur-xl dark:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
+              className="z-20 w-[170px] sm:w-[190px] self-end mr-1 sm:mr-4 rounded-2xl border border-[#0b0e14]/5 bg-white p-5 shadow-[0_20px_40px_rgba(0,0,0,0.06)] dark:border-white/[0.08] dark:bg-[#0c1322]/85 dark:backdrop-blur-xl dark:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
             >
               <div className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
                 Satisfaction
               </div>
-              <div className="mt-1 text-3xl font-black text-[#0b0e14] dark:text-white">98%</div>
+              <div className="mt-1 text-3xl font-black text-[#0b0e14] dark:text-white">
+                98%
+              </div>
               <div className="mt-2.5 flex gap-0.5 text-yellow-500">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="size-4 fill-yellow-500 stroke-yellow-500" />
+                  <Star
+                    key={i}
+                    className="size-4 fill-yellow-500 stroke-yellow-500"
+                  />
                 ))}
               </div>
             </motion.div>
 
-            {/* Card 2: REVENUE (Center / Main) */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
-              animate={{ 
-                opacity: 1, 
-                y: [0, -16, 0] 
+              animate={{
+                opacity: 1,
+                y: [0, -12, 0],
               }}
               transition={{
-                y: { repeat: Infinity, duration: 6, ease: "easeInOut", delay: 0.4 }
+                y: {
+                  repeat: Infinity,
+                  duration: 6,
+                  ease: "easeInOut",
+                  delay: 0.4,
+                },
               }}
-              className="absolute left-[8%] sm:left-[12%] top-[18%] z-10 w-[300px] sm:w-[350px] rounded-[24px] border border-[#0b0e14]/5 bg-white p-6 shadow-[0_30px_60px_rgba(0,0,0,0.08)] dark:border-white/[0.08] dark:bg-[#0c1322]/90 dark:backdrop-blur-2xl dark:shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
+              className="z-10 w-full max-w-[300px] sm:max-w-[350px] rounded-[24px] border border-[#0b0e14]/5 bg-white p-6 shadow-[0_30px_60px_rgba(0,0,0,0.08)] dark:border-white/[0.08] dark:bg-[#0c1322]/90 dark:backdrop-blur-2xl dark:shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
             >
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
@@ -172,15 +257,17 @@ export default function HeroSection2() {
                   &uarr; 24.8%
                 </span>
               </div>
-              
+
               <div className="mt-2 text-3xl font-black tracking-tight text-[#0b0e14] dark:text-white">
                 $284,902
               </div>
 
-              {/* Dynamic Styled SVG Chart */}
               <div className="mt-6 flex h-24 items-end gap-2.5 pb-2">
                 {[30, 45, 60, 40, 75, 90, 55, 70, 100, 80, 95].map((val, i) => (
-                  <div key={i} className="flex-1 flex flex-col justify-end h-full group">
+                  <div
+                    key={i}
+                    className="flex-1 flex flex-col justify-end h-full group"
+                  >
                     <motion.div
                       initial={{ height: 0 }}
                       animate={{ height: `${val}%` }}
@@ -193,7 +280,6 @@ export default function HeroSection2() {
 
               <div className="my-5 border-t border-border/50 dark:border-white/[0.06]" />
 
-              {/* Profile Listings */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -201,11 +287,17 @@ export default function HeroSection2() {
                       A
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-[#0b0e14] dark:text-white leading-tight">Ahmed Hassan</div>
-                      <div className="text-[9px] text-gray-400 dark:text-gray-500">Restaurant Chain</div>
+                      <div className="text-xs font-bold text-[#0b0e14] dark:text-white leading-tight">
+                        Ahmed Hassan
+                      </div>
+                      <div className="text-[9px] text-gray-400 dark:text-gray-500">
+                        Restaurant Chain
+                      </div>
                     </div>
                   </div>
-                  <span className="text-xs font-bold text-[#0b0e14] dark:text-white">$48,200</span>
+                  <span className="text-xs font-bold text-[#0b0e14] dark:text-white">
+                    $48,200
+                  </span>
                 </div>
 
                 <div className="flex items-center justify-between">
@@ -214,39 +306,51 @@ export default function HeroSection2() {
                       S
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-[#0b0e14] dark:text-white leading-tight">Sara Mitchell</div>
-                      <div className="text-[9px] text-gray-400 dark:text-gray-500">Salon Network</div>
+                      <div className="text-xs font-bold text-[#0b0e14] dark:text-white leading-tight">
+                        Sara Mitchell
+                      </div>
+                      <div className="text-[9px] text-gray-400 dark:text-gray-500">
+                        Salon Network
+                      </div>
                     </div>
                   </div>
-                  <span className="text-xs font-bold text-[#0b0e14] dark:text-white">$31,800</span>
+                  <span className="text-xs font-bold text-[#0b0e14] dark:text-white">
+                    $31,800
+                  </span>
                 </div>
               </div>
             </motion.div>
 
-            {/* Card 3: ACTIVE PROJECTS (Bottom Left) */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ 
-                opacity: 1, 
+              animate={{
+                opacity: 1,
                 scale: 1,
-                y: [0, -8, 0] 
+                y: [0, -6, 0],
               }}
               transition={{
                 scale: { duration: 0.6, delay: 0.5 },
                 opacity: { duration: 0.6, delay: 0.5 },
-                y: { repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 0.8 }
+                y: {
+                  repeat: Infinity,
+                  duration: 4.5,
+                  ease: "easeInOut",
+                  delay: 0.8,
+                },
               }}
-              className="absolute left-[-2%] bottom-[12%] z-20 w-[180px] sm:w-[200px] rounded-2xl border border-[#0b0e14]/5 bg-white p-5 shadow-[0_20px_40px_rgba(0,0,0,0.06)] dark:border-white/[0.08] dark:bg-[#0c1322]/85 dark:backdrop-blur-xl dark:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
+              className="z-20 w-[180px] sm:w-[200px] self-start ml-1 sm:ml-4 rounded-2xl border border-[#0b0e14]/5 bg-white p-5 shadow-[0_20px_40px_rgba(0,0,0,0.06)] dark:border-white/[0.08] dark:bg-[#0c1322]/85 dark:backdrop-blur-xl dark:shadow-[0_20px_40px_rgba(0,0,0,0.4)]"
             >
               <div className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
                 Active Projects
               </div>
-              <div className="mt-1 text-3xl font-black text-[#0b0e14] dark:text-white">47</div>
-              
+              <div className="mt-1 text-3xl font-black text-[#0b0e14] dark:text-white">
+                47
+              </div>
+
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {["React", "Node", "AWS"].map((tag) => (
-                  <span 
-                    key={tag} 
+                  <span
+                    key={tag}
                     className="rounded bg-primary/10 px-1.5 py-0.5 text-[9px] font-extrabold text-primary border border-primary/15 dark:bg-blue-500/10 dark:text-[#38bdf8] dark:border-blue-500/15"
                   >
                     {tag}
@@ -254,8 +358,89 @@ export default function HeroSection2() {
                 ))}
               </div>
             </motion.div>
-          </div>
+          </div> */}
 
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="group relative w-full hidden lg:block"
+          >
+            {/* glow that appears on hover */}
+            <div className="pointer-events-none absolute -inset-4 rounded-[28px] bg-linear-to-r from-red-500/0 via-primary/0 to-emerald-500/0 opacity-0 blur-2xl transition-all duration-500 group-hover:from-red-500/20 group-hover:via-primary/20 group-hover:to-emerald-500/20 group-hover:opacity-100" />
+
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#0c1322] p-6 shadow-[0_30px_60px_rgba(0,0,0,0.45)] transition-colors duration-300 hover:-translate-y-1 group-hover:border-white/20">
+              {/* title bar with 3 dots */}
+              <div className="mb-6 flex items-center gap-2">
+                <span className="h-3 w-3 rounded-full bg-white/15 transition-colors duration-300 group-hover:bg-[#ff5f57] group-hover:shadow-[0_0_8px_rgba(255,95,87,0.7)]" />
+                <span className="h-3 w-3 rounded-full bg-white/15 transition-colors duration-300 group-hover:bg-[#febc2e] group-hover:shadow-[0_0_8px_rgba(254,188,46,0.7)]" />
+                <span className="h-3 w-3 rounded-full bg-white/15 transition-colors duration-300 group-hover:bg-[#28c840] group-hover:shadow-[0_0_8px_rgba(40,200,64,0.7)]" />
+                <span className="ml-3 font-mono text-xs text-gray-500">
+                  ~/divineesoft
+                </span>
+              </div>
+
+              {/* terminal content */}
+              <div className="space-y-3 font-mono text-sm">
+                {/* first command line */}
+                <p className="flex flex-wrap items-center gap-2">
+                  <span className="text-emerald-400">→</span>
+                  <span className="text-gray-400">discovery</span>
+                  <span className="text-blue-300">
+                    ./understand-your-problem
+                  </span>
+                </p>
+
+                {/* checkmarks */}
+                {TERMINAL_STEPS.map((step) => (
+                  <p
+                    key={step}
+                    className="flex items-center gap-2 pl-5 text-blue-300/90"
+                  >
+                    <span className="text-blue-400">✓</span>
+                    {step}
+                  </p>
+                ))}
+
+                {/* typing effect line */}
+                <div className="flex items-center gap-2">
+                  <span className="text-emerald-400">→</span>
+                  <span className="text-gray-400">build</span>
+                  <TypingText words={ROLES} />
+                </div>
+
+                {/* tech badges */}
+                <div className="flex flex-wrap gap-2 pl-5 pt-1">
+                  {TECH_BADGES.map((badge) => (
+                    <span
+                      key={badge}
+                      className="rounded-md border border-primary/20 bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary transition-transform hover:-translate-y-0.5"
+                    >
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+
+                {/* deploy command */}
+                <p className="flex flex-wrap items-center gap-2">
+                  <span className="text-emerald-400">→</span>
+                  <span className="text-gray-400">deploy</span>
+                  <span className="text-blue-300">--partner-mode on</span>
+                </p>
+
+                {/* success line */}
+                <p className="flex items-center gap-2 text-emerald-400">
+                  <span className="text-emerald-400">✓</span>
+                  shipped & scaling
+                  <motion.span
+                    className="ml-1 h-2 w-2 rounded-full bg-emerald-400"
+                    animate={{ opacity: [1, 0.3, 1] }}
+                    transition={{ duration: 1.6, repeat: Infinity }}
+                  />
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

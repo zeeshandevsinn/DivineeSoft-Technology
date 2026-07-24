@@ -46,7 +46,7 @@ export default function Preloader() {
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            transition: { duration: 0.6, ease: "easeInOut" }
+            transition: { duration: 0.6, ease: "easeInOut" },
           }}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#030712] text-white"
         >
@@ -60,7 +60,7 @@ export default function Preloader() {
               animate={{
                 scale: 1,
                 opacity: 1,
-                transition: { duration: 0.5, ease: "easeOut" }
+                transition: { duration: 0.5, ease: "easeOut" },
               }}
               className="relative h-16 w-52 sm:h-20 sm:w-64 md:h-24 md:w-72"
             >
@@ -80,7 +80,7 @@ export default function Preloader() {
               animate={{
                 y: 0,
                 opacity: 0.8,
-                transition: { delay: 0.2, duration: 0.4 }
+                transition: { delay: 0.2, duration: 0.4 },
               }}
               className="text-xs font-semibold uppercase tracking-[0.25em] text-primary sm:text-sm"
             >
@@ -90,14 +90,14 @@ export default function Preloader() {
             {/* Premium Loading Spinner & Line */}
             <div className="mt-4 flex flex-col items-center gap-4">
               {/* Spinner */}
-              <div className="relative h-10 w-10">
+              {/* <div className="relative h-10 w-10">
                 <div className="absolute inset-0 rounded-full border-2 border-primary/20" />
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
                   className="absolute inset-0 rounded-full border-2 border-t-primary border-r-primary"
                 />
-              </div>
+              </div> */}
 
               {/* Progress Line Simulation */}
               <div className="h-[2px] w-32 overflow-hidden rounded-full bg-primary/10">
@@ -107,7 +107,7 @@ export default function Preloader() {
                   transition={{
                     repeat: Infinity,
                     duration: 1.5,
-                    ease: "easeInOut"
+                    ease: "easeInOut",
                   }}
                   className="h-full w-1/2 bg-gradient-to-r from-transparent via-primary to-transparent"
                 />
