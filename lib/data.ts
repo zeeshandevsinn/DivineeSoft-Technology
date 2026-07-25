@@ -516,29 +516,29 @@ export const blogPosts = [
 ];
 
 export const socialLinks = [
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    icon: FaFacebook,
-  },
-  {
-    name: "Instagram",
-    url: "https://www.instagram.com",
-    icon: FaInstagram,
-  },
+  // {
+  //   name: "Facebook",
+  //   url: "https://www.facebook.com",
+  //   icon: FaFacebook,
+  // },
+  // {
+  //   name: "Instagram",
+  //   url: "https://www.instagram.com",
+  //   icon: FaInstagram,
+  // },
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/md-zeeshan-aslam-0749a7252",
+    url: "https://www.linkedin.com/company/divineesoft-technologies/",
     icon: FaLinkedin,
   },
-  {
-    name: "X",
-    url: "https://x.com",
-    icon: FaXTwitter,
-  },
+  // {
+  //   name: "X",
+  //   url: "https://x.com",
+  //   icon: FaXTwitter,
+  // },
   {
     name: "Pinterest",
-    url: "https://www.pinterest.com",
+    url: "https://pin.it/2d1I6sTmY",
     icon: FaPinterest,
   },
 ];

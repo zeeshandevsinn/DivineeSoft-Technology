@@ -26,7 +26,7 @@ export default function Footer() {
           <div className="space-y-6">
             <Logo isFooter />
 
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed ">
               We are a full-service digital agency helping brands grow through
               innovation, design, and technology.
             </p>
@@ -60,7 +60,7 @@ export default function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="hover:text-primary transition-colors flex items-center gap-2"
+                    className="hover:text-primary transition-colors flex items-center gap-2 w-fit"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
                     {item.label}
@@ -78,7 +78,7 @@ export default function Footer() {
                 <li key={service.id}>
                   <Link
                     href={`/services/${service.id}`}
-                    className="hover:text-primary transition-colors flex items-center gap-2"
+                    className="hover:text-primary transition-colors flex items-center gap-2 w-fit"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
                     {service.title}
