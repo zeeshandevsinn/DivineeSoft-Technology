@@ -35,17 +35,19 @@ const SERVICES = [
   {
     value: "web-development",
     label: "Web Development",
-    description: "Modern, high-performance websites.",
+    description:
+      "Custom, high-performance websites built with modern technologies.",
   },
   {
     value: "app-development",
     label: "App Development",
-    description: "Native and cross-platform mobile applications.",
+    description:
+      "Native and cross-platform mobile applications for iOS and Android.",
   },
   {
     value: "ai-services",
     label: "AI Development and Services",
-    description: "Machine learning and automation solutions.",
+    description: "Intelligent solutions using machine learning and automation.",
   },
   {
     value: "digital-marketing",
@@ -55,7 +57,20 @@ const SERVICES = [
   {
     value: "seo",
     label: "Search Engine Optimization",
-    description: "Improve rankings & organic traffic.",
+    description:
+      "Search Engine Optimization to improve visibility and organic traffic.",
+  },
+  {
+    value: "cloud-solutions",
+    label: "Cloud Solutions & DevOps",
+    description:
+      "Scalable cloud infrastructure, migration, and DevOps automation for modern businesses.",
+  },
+  {
+    value: "saas-product-development",
+    label: "SaaS Product Development",
+    description:
+      "End-to-end SaaS product design, development, and launch for startups and enterprises.",
   },
 ];
 
@@ -159,31 +174,31 @@ export default function ContactClient() {
 
                   <div className="pt-6 space-y-6">
                     <InfoItem
-                      icon={<Phone />}
+                      icon={<Phone className="text-white" size={"20px"} />}
                       title="Phone"
                       value="+92 314 6256754"
                       link="tel:+923146256754"
                     />
                     <InfoItem
-                      icon={<Mail />}
+                      icon={<Mail className="text-white" size={"20px"} />}
                       title="Email"
                       value="divineesofttechnologies@gmail.com"
                       link="divineesofttechnologies@gmail.com"
                     />
                     <InfoItem
-                      icon={<MapPin />}
+                      icon={<MapPin className="text-white " size={"20px"} />}
                       title="Address"
                       value="House 4/5, Street 62 , near Sharief Park Multan Road Lahore"
                     />
                     <InfoItem
-                      icon={<Clock />}
+                      icon={<Clock className="text-white" size={"20px"} />}
                       title="Working Hours"
                       value="Mon – Fri, 9am – 6pm CET"
                     />
                   </div>
                 </div>
 
-                <p className="text-sm  mt-10 text-black">
+                <p className="text-sm  mt-10 text-white">
                   We usually respond within 24 hours.
                 </p>
               </div>
@@ -368,12 +383,12 @@ function InfoItem({
   link?: string;
 }) {
   return (
-    <div className="flex gap-4 items-start">
+    <div className="flex gap-3 items-start">
       <div className="text-primary">{icon}</div>
-      <div>
-        <p className="text-sm text-black">{title}</p>
+      <div className="flex flex-col gap-2">
+        <p className="text-md text-white font-extrabold">{title}</p>
         {link ? (
-          <a href={link} className="font-medium hover:text-primary">
+          <a href={link} className="font-medium hover:text-[#030816]">
             {value}
           </a>
         ) : (
