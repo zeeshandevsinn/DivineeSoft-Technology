@@ -94,15 +94,29 @@ export default function Footer() {
             <ul className="space-y-6">
               <li className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-[#112236] flex items-center justify-center text-primary shrink-0">
+                  <Mail size={18} />
+                </div>
+                <div>
+                  <span className="block text-white font-medium mb-1">
+                    Email Us
+                  </span>
+                  <a
+                    href="mailto:info@divineesoft.com"
+                    className="text-sm hover:text-white transition-colors"
+                  >
+                    info@divineesoft.com
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-[#112236] flex items-center justify-center text-primary shrink-0">
                   <MapPin size={18} />
                 </div>
                 <div>
                   <span className="block text-white font-medium mb-1">
-                    Pakistan
+                    Address
                   </span>
-                  <span className="text-sm">
-                    House 4/5, Street 62 , near Sharief Park Multan Road Lahore
-                  </span>
+                  <span className="text-sm">Lahore, Punjab Pakistan</span>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -120,22 +134,6 @@ export default function Footer() {
                     className="text-sm hover:text-white transition-colors"
                   >
                     +92 314 6256754
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#112236] flex items-center justify-center text-primary shrink-0">
-                  <Mail size={18} />
-                </div>
-                <div>
-                  <span className="block text-white font-medium mb-1">
-                    Email Us
-                  </span>
-                  <a
-                    href="mailto:divineesofttechnologies@gmail.com"
-                    className="text-sm hover:text-white transition-colors"
-                  >
-                    divineesofttechnologies@gmail.com
                   </a>
                 </div>
               </li>
