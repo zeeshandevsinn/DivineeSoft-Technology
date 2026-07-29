@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -35,7 +34,7 @@ const statItems: StatItem[] = [
 const PartnershipSection = () => {
   return (
     <section className="relative overflow-hidden bg-card py-24 text-card-foreground">
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-primary/10 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-linear-to-l from-primary/10 to-transparent" />
 
       <div className="container relative z-10 mx-auto grid grid-cols-1 items-center gap-12 px-6 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
         <motion.div
@@ -98,7 +97,7 @@ const PartnershipSection = () => {
                   product ecosystem from infrastructure to customer-facing apps.
                 </p>
               </div>
-              <span className="flex size-12 flex-shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                 <MdHandshake className="size-7" />
               </span>
             </div>
@@ -135,7 +134,7 @@ const PartnershipSection = () => {
                     key={item.label}
                     className="flex items-start gap-3 text-sm font-medium leading-relaxed text-muted-foreground"
                   >
-                    <span className="mt-0.5 flex size-5 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <span className="mt-0.5 flex size-5 hrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                       <MdCheck size={14} />
                     </span>
                     {item.label}
