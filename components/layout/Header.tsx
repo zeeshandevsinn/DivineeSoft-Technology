@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import Logo from "@/components/Logo";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Calendar } from "lucide-react";
 import { services } from "@/lib/data";
 import {
   motion,
@@ -15,7 +15,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { getCalApi } from "@calcom/embed-react";
+import { openCalModal } from "@/lib/cal";
 
 /* ================= ROUTE LOGIC ================= */
 
@@ -89,10 +89,7 @@ export default function Header() {
   ];
 
   const openCalendar = async () => {
-    const cal = await getCalApi({});
-    cal("modal", {
-      calLink: process.env.NEXT_PUBLIC_CAL_LINK || "zeeshan-malik-x0xcrz/30min",
-    });
+    await openCalModal();
   };
 
   return (
@@ -181,12 +178,18 @@ export default function Header() {
           <div className="flex items-center gap-3 sm:gap-4">
             <ThemeToggle />
 
-            <Button asChild className="hidden rounded-full px-6 lg:inline-flex">
+            <Button asChild variant="outline" className="hidden lg:inline-flex rounded-full px-5 border-border hover:bg-muted font-medium">
               <Link href="/contact">Get a Quote</Link>
             </Button>
-            <Button asChild  onClick={openCalendar} className="hidden rounded-full px-6 lg:inline-flex"
-            >Book a Call
-            </Button>
+            
+            <button
+              type="button"
+              onClick={openCalendar}
+              className="hidden md:inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-primary via-blue-600 to-indigo-600 hover:from-blue-600 hover:to-primary shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/35 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 border border-white/10"
+            >
+              <Calendar size={16} />
+              <span>Book a Call</span>
+            </button>
 
             <button
               onClick={openMobileMenu}
@@ -288,11 +291,24 @@ export default function Header() {
                 );
               })}
 
-              <Button asChild className="mt-2 w-full rounded-full">
-                <Link href="/contact" onClick={closeMobileMenu}>
-                  Get a Quote
-                </Link>
-              </Button>
+              <div className="mt-4 flex flex-col gap-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    closeMobileMenu();
+                    void openCalendar();
+                  }}
+                  className="w-full rounded-full h-12 text-base font-semibold text-white bg-gradient-to-r from-primary to-blue-600 shadow-md shadow-primary/20 flex items-center justify-center gap-2"
+                >
+                  <Calendar size={18} />
+                  <span>Book a Call</span>
+                </button>
+                <Button asChild variant="outline" className="w-full rounded-full h-12 text-base font-medium">
+                  <Link href="/contact" onClick={closeMobileMenu}>
+                    Get a Quote
+                  </Link>
+                </Button>
+              </div>
             </div>
           </motion.div>
         )}

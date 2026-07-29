@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar, CheckCircle2 } from "lucide-react";
-import { getCalApi } from "@calcom/embed-react";
+import { Calendar, CheckCircle2 } from "lucide-react";
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { configureCalUi, DEFAULT_CAL_LINK, openCalModal, watchCalThemeChanges } from "@/lib/cal";
 
 interface PageHeroProps {
   title: React.ReactNode;
@@ -36,10 +36,9 @@ export default function PageHero({
   buttons
 }: PageHeroProps) {
   useEffect(() => {
-    (async function () {
-      const cal = await getCalApi({});
-      cal("ui", { styles: { branding: { brandColor: "#000000" } }, hideEventTypeDetails: false, layout: "month_view" });
-    })();
+    void configureCalUi();
+    const stopWatching = watchCalThemeChanges();
+    return () => stopWatching();
   }, []);
 
   const isCenter = align === "center";
@@ -112,8 +111,7 @@ export default function PageHero({
                   className="bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-full px-8 h-12 md:h-14 text-base md:text-lg shadow-lg shadow-secondary/20"
                   onClick={async () => {
                     if (buttons.primary?.action === "modal") {
-                      const cal = await getCalApi({});
-                      cal("modal", { calLink: process.env.NEXT_PUBLIC_CAL_LINK || "divineesoft-digital/30min" });
+                      await openCalModal(DEFAULT_CAL_LINK);
                     }
                   }}
                   asChild={buttons.primary.action !== "modal"}

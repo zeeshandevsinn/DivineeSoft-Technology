@@ -234,4 +234,8 @@
   ::-webkit-scrollbar-thumb {
     @apply bg-primary/60 rounded-full hover:bg-primary/70 transition-colors;
   }
+
+  a, button {
+    cursor: pointer;
+  }
 }

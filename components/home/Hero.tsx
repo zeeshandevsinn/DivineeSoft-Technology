@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { getCalApi } from "@calcom/embed-react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import { useEffect, useState } from "react";
+import { openCalModal } from "@/lib/cal";
 
 export default function HeroSection2() {
   const TERMINAL_STEPS = [
@@ -83,10 +83,7 @@ export default function HeroSection2() {
     );
   }
   const openCalendar = async () => {
-    const cal = await getCalApi({});
-    cal("modal", {
-      calLink: process.env.NEXT_PUBLIC_CAL_LINK || "zeeshan-malik-x0xcrz/30min",
-    });
+    await openCalModal();
   };
 
   // Fade-up variants for text elements
@@ -146,7 +143,7 @@ export default function HeroSection2() {
               className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-extrabold leading-[1.1] tracking-tight text-[#0b0e14] dark:text-white mb-6"
             >
               Every Great Business <br /> Starts With One Problem. <br />
-              <span className="text-primary bg-clip-text bg-linear-to-r from-primary via-blue-500 to-primary font-black">
+              <span className="text-primary bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-primary font-black">
                 We Solve It.
               </span>
             </motion.h1>
@@ -186,8 +183,9 @@ export default function HeroSection2() {
               <button
                 type="button"
                 onClick={openCalendar}
-                className="group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-linear-to-r from-primary to-blue-600 px-8 text-base font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:to-blue-700 hover:from-primary hover:shadow-[0_0_25px_rgba(9,75,240,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                className="relative group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-gradient-to-r from-primary via-blue-600 to-indigo-600 px-8 text-base font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_35px_rgba(9,75,240,0.45)] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary border border-white/15 overflow-hidden shadow-lg shadow-primary/25"
               >
+                <Calendar className="size-5" />
                 <span className="lg:hidden">Book a Call</span>
                 <span className="hidden lg:inline">Start Your Project</span>
                 <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -195,7 +193,7 @@ export default function HeroSection2() {
 
               <Link
                 href="/case-studies"
-                className="inline-flex h-14 items-center justify-center rounded-full border border-[#0b0e14]/15 bg-transparent text-[#0b0e14] hover:bg-[#0b0e14]/5 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:border-white/25 dark:hover:bg-white/10 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white px-8"
+                className="inline-flex h-14 items-center justify-center gap-2 rounded-full border border-border/80 bg-card/60 hover:bg-muted dark:border-white/15 dark:bg-white/5 dark:hover:bg-white/10 dark:hover:border-white/30 text-foreground dark:text-white font-semibold transition-all duration-300 hover:-translate-y-0.5 px-8 backdrop-blur-md shadow-xs"
               >
                 See Our Work
               </Link>
