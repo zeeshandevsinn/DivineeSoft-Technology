@@ -335,7 +335,7 @@ export default function ContactClient() {
         </section>
 
         {/* MAP SECTION */}
-        <section className="w-full h-[400px] bg-muted">
+        <section className="w-full h-100 bg-muted">
           <iframe
             title="DivineeSoft Technology Location"
             width="100%"
@@ -344,7 +344,9 @@ export default function ContactClient() {
             scrolling="no"
             marginHeight={0}
             marginWidth={0}
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d431.29659378466147!2d74.28840968516866!3d31.52875636740413!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sLahore%2C%20Pakistan!5e0!3m2!1sen!2sit!4v1777090336459!5m2!1sen!2sit"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d244129.36805879037!2d74.3343893!3d31.482940349999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sLahore%2C%20Pakistan!5e1!3m2!1sen!2s!4v1785352184260!5m2!1sen!2s"
+            loading="lazy" 
+            referrerPolicy="strict-origin-when-cross-origin"
             className="filter grayscale hover:grayscale-0 transition-all duration-300"
           ></iframe>
         </section>

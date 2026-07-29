@@ -15,6 +15,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { getCalApi } from "@calcom/embed-react";
 
 /* ================= ROUTE LOGIC ================= */
 
@@ -86,6 +87,13 @@ export default function Header() {
     { name: "Case Studies", href: "/case-studies" },
     { name: "Blogs", href: "https://blogs.divineesoft.com" },
   ];
+
+  const openCalendar = async () => {
+    const cal = await getCalApi({});
+    cal("modal", {
+      calLink: process.env.NEXT_PUBLIC_CAL_LINK || "zeeshan-malik-x0xcrz/30min",
+    });
+  };
 
   return (
     <>
@@ -176,8 +184,8 @@ export default function Header() {
             <Button asChild className="hidden rounded-full px-6 lg:inline-flex">
               <Link href="/contact">Get a Quote</Link>
             </Button>
-            <Button asChild className="hidden rounded-full px-6 lg:inline-flex">
-              <Link href="/contact">Book a Call</Link>
+            <Button asChild  onClick={openCalendar} className="hidden rounded-full px-6 lg:inline-flex"
+            >Book a Call
             </Button>
 
             <button
@@ -207,7 +215,7 @@ export default function Header() {
               stiffness: 260,
               damping: 28,
             }}
-            className="fixed inset-0 z-[60] flex flex-col bg-background lg:hidden"
+            className="fixed inset-0 z-60 flex flex-col bg-background lg:hidden"
           >
             {/* Top */}
             <div className="flex items-center justify-between border-b p-6">
