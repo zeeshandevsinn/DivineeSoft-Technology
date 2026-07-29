@@ -174,26 +174,26 @@ export default function ContactClient() {
 
                   <div className="pt-6 space-y-6">
                     <InfoItem
+                      icon={<Mail className="text-white" size={"20px"} />}
+                      title="Email"
+                      value="info@divineesoft.com"
+                      link="mailto:info@divineesoft.com"
+                    />
+                    <InfoItem
+                      icon={<MapPin className="text-white " size={"20px"} />}
+                      title="Address"
+                      value="Lahore, Punjab Pakistan"
+                    />
+                    <InfoItem
                       icon={<Phone className="text-white" size={"20px"} />}
                       title="Phone"
                       value="+92 314 6256754"
                       link="tel:+923146256754"
                     />
                     <InfoItem
-                      icon={<Mail className="text-white" size={"20px"} />}
-                      title="Email"
-                      value="divineesofttechnologies@gmail.com"
-                      link="divineesofttechnologies@gmail.com"
-                    />
-                    <InfoItem
-                      icon={<MapPin className="text-white " size={"20px"} />}
-                      title="Address"
-                      value="House 4/5, Street 62 , near Sharief Park Multan Road Lahore"
-                    />
-                    <InfoItem
                       icon={<Clock className="text-white" size={"20px"} />}
                       title="Working Hours"
-                      value="Mon – Fri, 9am – 6pm CET"
+                      value=" Available 24/7"
                     />
                   </div>
                 </div>
@@ -388,7 +388,7 @@ function InfoItem({
       <div className="flex flex-col gap-2">
         <p className="text-md text-white font-extrabold">{title}</p>
         {link ? (
-          <a href={link} className="font-medium hover:text-[#030816]">
+          <a href={link} className="font-medium ">
             {value}
           </a>
         ) : (
