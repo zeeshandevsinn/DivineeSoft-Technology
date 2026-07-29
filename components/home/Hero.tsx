@@ -7,30 +7,29 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function HeroSection2() {
-  
-const TERMINAL_STEPS = [
-  "business requirements gathered",
-  "delivery roadmap approved",
-  "architecture finalized",
-];
+  const TERMINAL_STEPS = [
+    "business requirements gathered",
+    "delivery roadmap approved",
+    "architecture finalized",
+  ];
 
-const ROLES = [
-  "--enterprise-ready",
-  "--cloud-native",
-  "--AI-powered",
-  "--production-grade",
-];
+  const ROLES = [
+    "--enterprise-ready",
+    "--cloud-native",
+    "--AI-powered",
+    "--production-grade",
+  ];
 
-const TECH_BADGES = [
-  "AI Solutions",
-  "Web Platforms",
-  "Mobile Apps",
-  "Cloud Infrastructure",
-  "Enterprise Software",
-  "Automation",
-  "DevOps",
-  "Managed Services",
-];
+  const TECH_BADGES = [
+    "AI Solutions",
+    "Web Platforms",
+    "Mobile Apps",
+    "Cloud Infrastructure",
+    "Enterprise Software",
+    "Automation",
+    "DevOps",
+    "Managed Services",
+  ];
 
   function TypingText({ words }: { words: string[] }) {
     const [wordIndex, setWordIndex] = useState(0);
@@ -189,7 +188,8 @@ const TECH_BADGES = [
                 onClick={openCalendar}
                 className="group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-linear-to-r from-primary to-blue-600 px-8 text-base font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:to-blue-700 hover:from-primary hover:shadow-[0_0_25px_rgba(9,75,240,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
-                Start Your Project
+                <span className="lg:hidden">Book a Call</span>
+                <span className="hidden lg:inline">Start Your Project</span>
                 <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
 

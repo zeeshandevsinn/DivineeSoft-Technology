@@ -176,6 +176,9 @@ export default function Header() {
             <Button asChild className="hidden rounded-full px-6 lg:inline-flex">
               <Link href="/contact">Get a Quote</Link>
             </Button>
+            <Button asChild className="hidden rounded-full px-6 lg:inline-flex">
+              <Link href="/contact">Book a Call</Link>
+            </Button>
 
             <button
               onClick={openMobileMenu}
