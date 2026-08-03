@@ -61,20 +61,25 @@ export default function InternationalPartners() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-muted-foreground dark:text-gray-400 text-base sm:text-lg leading-relaxed"
           >
-            Connecting expertise across continents. Our leadership team coordinates operations
-            globally to deliver premium software and digital products.
+            Connecting expertise across continents. Our leadership team
+            coordinates operations globally to deliver premium software and
+            digital products.
           </motion.p>
         </div>
 
         {/* Partners Grid */}
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto justify-center">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-2 max-w-4xl mx-auto justify-center">
           {partners.map((partner, index) => (
             <motion.div
               key={partner.name}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                delay: index * 0.2,
+                duration: 0.7,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               whileHover={{ y: -8 }}
               className="group relative rounded-3xl overflow-hidden border border-border/40 bg-card shadow-md transition-all duration-500 hover:border-primary/30 hover:shadow-2xl dark:border-white/[0.06] dark:bg-[#0c1322]/30 w-full max-w-[360px] mx-auto aspect-[3/4]"
             >
